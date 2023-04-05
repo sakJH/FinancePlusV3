@@ -1,0 +1,93 @@
+Navrhněte uživatelské rozhraní (UI): Vytvořte návrhy obrazovek a interakcí pro celou aplikaci. To vám pomůže vizualizovat celkovou strukturu a funkčnost aplikace.
+- viz 1.
+
+Vytvořte modelové třídy: Definujte modelové třídy pro příjmy, výdaje a další entitátor případné datové struktury.
+- Trans
+- Income
+- Expanse
+
+Nastavte databázi a DAO: Vytvořte databázové třídy, DAO (Data Access Object) pro manipulaci s daty příjmů, výdajů a dalších entit.
+- TransDao
+- IncomeDao
+- ExpanseDao
+
+Vytvořte repozitáře: Implementujte repozitáře pro získávání dat z databáze nebo jiných zdrojů.
+- TransRepo / TransRepoImpl
+- IncomeRepo / asi není třeba
+- ExpanseRepo / asi není třeba
+
+Implementujte ViewModely: Vytvořte ViewModely pro každý fragment, které budou komunikovat s repozitáři a databází, a zajistíte správnou manipulaci s daty.
+- TransactionViewModel
+
+Vytvořte fragmenty a layouty: Vytvořte fragmenty a jejich odpovídající layouty XML pro Hlavní, Rozpočet, Příjmy, Výdaje a Detail přijmu/výdaje.
+- Layouty
+-- frag_main
+-- frag_budget
+-- frag_income
+-- frag_expanse
+- Fragmenty
+-- MainFragment
+-- BudgetFragment
+-- IncomeFragment
+-- ExpanseFragment
+
+Implementujte navigaci: Nastavte navigační graf a NavController pro navigaci mezi fragmenty.
+- MainAct -> MainFragment / BudgetFragment / IncomeFragment / ExpanseFragment
+
+Vytvořte adaptéry pro RecyclerViews: Implementujte adaptéry pro zobrazení seznamů příjmů, výdajů a dalších entit.
+- TransAdapter
+- trans_item.xml
+- IncomeFragment - chyba
+- ExpanseFragment - chyba
+- BudgetFragment - chyba
+
+Propojte ViewModely s fragmenty: V každém fragmentu nastavte ViewModel a vytvořte pozorovatele pro LiveData objekty.
+
+Přidejte akce a interakce: Implementujte akce pro přidání, úpravu a mazání příjmů a výdajů, stejně jako navigaci mezi obrazovkami a aktualizaci zobrazených dat.
+
+Implementujte validaci a chybovou kontrolu: Zkontrolujte, zda jsou vstupy uživatele správně validovány, a implementujte chybové zprávy a kontroly.
+
+Vytvořte pomocné třídy: Implementujte pomocné třídy a funkce pro formátování dat, měn a další úkoly.
+
+Optimalizace a ladění: Optimalizujte kód, odstraňte chyby a vylepšete výkon aplikace.
+
+Testování: Proveďte testování na různých zařízeních a emulátorech, abyste se ujistili, že aplikace funguje
+
+
+-----------
+1.
+-----------
+Hlavní obrazovka:
+
+Záhlaví s názvem aplikace "Finance+".
+Aktuální bilance rozpočtu zobrazena ve velkém písmu uprostřed obrazovky.
+Pod bilancí zobrazeny stručné informace o příjmech a výdajích za aktuální období.
+RecyclerView se seznamem nejnovějších příjmů a výdajů.
+Tlačítko "+" vpravo dole pro přidání nového příjmu nebo výdaje.
+Spodní navigační panel s ikonami pro přístup k Hlavní, Rozpočet, Příjmy a Výdaje obrazovkám.
+Rozpočet:
+
+Záhlaví s názvem obrazovky "Rozpočet".
+TabLayout se dvěma záložkami: "Příjmy" a "Výdaje".
+ViewPager pro zobrazení seznamů příjmů a výdajů podle zvolené záložky.
+Pro každou záložku RecyclerView se seznamem příjmů/výdajů.
+Tlačítko "+" vpravo dole pro přidání nového příjmu nebo výdaje.
+Spodní navigační panel pro přístup k ostatním obrazovkám.
+Příjmy:
+
+Záhlaví s názvem obrazovky "Příjmy".
+RecyclerView se seznamem příjmů.
+Tlačítko "+" vpravo dole pro přidání nového příjmu.
+Spodní navigační panel pro přístup k ostatním obrazovkám.
+Výdaje:
+
+Záhlaví s názvem obrazovky "Výdaje".
+RecyclerView se seznamem výdajů.
+Tlačítko "+" vpravo dole pro přidání nového výdaje.
+Spodní navigační panel pro přístup k ostatním obrazovkám.
+Detail přijmu/výdaje:
+
+Záhlaví s názvem obrazovky "Detail přijmu/výdaje" a tlačítkem zpět.
+Informace o příjmu/výdaji, jako je částka, kategorie, datum, popis atd.
+Tlačítko "Upravit" pro úpravu příjmu/výdaje.
+Tlačítko "Smazat" pro odstranění příjmu/výdaje

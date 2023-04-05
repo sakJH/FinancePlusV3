@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="uhk.umte.financeplusv3.fragments.MainFragment"
+            android:label="Hlavní"
+            tools:layout="@layout/fragment_main">
+
+            <action
+                    android:id="@+id/action_mainFragment_to_addIncomeFragment"
+                    app:destination="@+id/addIncomeFragment" />
+            <action
+                    android:id="@+id/action_mainFragment_to_addExpenseFragment"
+                    app:destination="@+id/addExpenseFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/budgetFragment"
+            android:name="uhk.umte.financeplusv3.fragments.BudgetFragment"
+            android:label="Rozpočet"
+            tools:layout="@layout/fragment_budget" />
+
+    <fragment
+            android:id="@+id/incomeFragment"
+            android:name="uhk.umte.financeplusv3.fragments.IncomeFragment"
+            android:label="Příjmy"
+            tools:layout="@layout/fragment_income" />
+
+    <fragment
+            android:id="@+id/expensesFragment"
+            android:name="uhk.umte.financeplusv3.fragments.ExpenseFragment"
+            android:label="Výdaje"
+            tools:layout="@layout/fragment_expense" />
+
+    <fragment
+            android:id="@+id/transactionDetailFragment"
+            android:name="uhk.umte.financeplusv3.fragments.TransactionDetailFragment"
+            android:label="Detail přijmu/výdaje"
+            tools:layout="@layout/fragment_transaction_detail">
+        <argument
+                android:name="transactionId"
+                app:argType="integer" />
+    </fragment>
+
+
+</navigation>
