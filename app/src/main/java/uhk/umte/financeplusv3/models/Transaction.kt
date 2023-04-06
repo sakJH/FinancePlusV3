@@ -1,7 +1,9 @@
 package uhk.umte.financeplusv3.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.Date
-
+/*
 class Transaction(
 
     val id: Int = 0,
@@ -10,8 +12,8 @@ class Transaction(
     val date: Date,
     val description: String,
     val transactionType: String
-)
-/*
+)*/
+
 @Entity(tableName = "transactions")
 data class Transaction(
     @PrimaryKey(autoGenerate = true)
@@ -21,4 +23,4 @@ data class Transaction(
     val date: Date,
     val description: String,
     val transactionType: String
-)*/
+)

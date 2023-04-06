@@ -20,6 +20,19 @@
     </fragment>
 
     <fragment
+            android:id="@+id/addIncomeFragment"
+            android:name="uhk.umte.financeplusv3.fragments.add.AddIncomeFragment"
+            android:label="@string/add_income"
+            tools:layout="@layout/fragment_add_income" />
+
+    <fragment
+            android:id="@+id/addExpenseFragment"
+            android:name="uhk.umte.financeplusv3.fragments.add.AddExpenseFragment"
+            android:label="@string/add_expense"
+            tools:layout="@layout/fragment_add_expense" />
+
+
+    <fragment
             android:id="@+id/budgetFragment"
             android:name="uhk.umte.financeplusv3.fragments.BudgetFragment"
             android:label="Rozpočet"
@@ -29,13 +42,18 @@
             android:id="@+id/incomeFragment"
             android:name="uhk.umte.financeplusv3.fragments.IncomeFragment"
             android:label="Příjmy"
-            tools:layout="@layout/fragment_income" />
+            tools:layout="@layout/fragment_income" >
+        <action android:id="@+id/action_incomeFragment_to_addIncomeFragment" app:destination="@id/addIncomeFragment"/>
+    </fragment>
 
     <fragment
             android:id="@+id/expensesFragment"
             android:name="uhk.umte.financeplusv3.fragments.ExpenseFragment"
             android:label="Výdaje"
-            tools:layout="@layout/fragment_expense" />
+            tools:layout="@layout/fragment_expense" >
+        <action android:id="@+id/action_expensesFragment_to_addExpenseFragment"
+                app:destination="@id/addExpenseFragment"/>
+    </fragment>
 
     <fragment
             android:id="@+id/transactionDetailFragment"

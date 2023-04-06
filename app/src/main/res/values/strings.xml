@@ -9,4 +9,6 @@
     <string name="description">Popis (volitelné)</string>
     <string name="category">Kategorie</string>
     <string name="amount">Částka</string>
+    <string name="notification_channel_name">notifikace</string>
+    <string name="notification_channel_description">notifikaceDescriptor</string>
 </resources>

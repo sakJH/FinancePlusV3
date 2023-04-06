@@ -31,13 +31,13 @@ class ExpenseFragment : Fragment() {
         val expenseAdapter = TransactionAdapter { transaction ->
             // Handle transaction item click
         }
-        //TODO
-        /*binding.recyclerView.apply {
+
+        binding.recyclerView.apply {
             adapter = expenseAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-
-        viewModel.allExpenses.observe(viewLifecycleOwner) { expenseTransactions ->
+        //TODO
+        /*viewModel.allExpenses.observe(viewLifecycleOwner) { expenseTransactions ->
             expenseAdapter.submitList(expenseTransactions)
         }*/
     }

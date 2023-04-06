@@ -12,8 +12,10 @@ import uhk.umte.financeplusv3.repositories.ExpenseRepository
 import uhk.umte.financeplusv3.repositories.IncomeRepository
 import uhk.umte.financeplusv3.repositories.TransactionRepository
 
-class TransactionViewModel(private val repository: TransactionRepository, private val incomeRepository: IncomeRepository,
-                           private val expenseRepository: ExpenseRepository) : ViewModel() {
+class TransactionViewModel(
+    private val repository: TransactionRepository, private val incomeRepository: IncomeRepository,
+                           private val expenseRepository: ExpenseRepository
+) : ViewModel() {
 
     private val _allTransactions = MutableLiveData<List<Transaction>>()
     val allTransactions = _allTransactions

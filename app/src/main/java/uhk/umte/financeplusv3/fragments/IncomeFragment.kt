@@ -31,13 +31,13 @@ class IncomeFragment : Fragment() {
         val incomeAdapter = TransactionAdapter { transaction ->
             // Handle transaction item click
         }
-        //TODO
-        /*binding.recyclerView.apply {
+
+        binding.recyclerView.apply {
             adapter = incomeAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-
-        viewModel.allIncomes.observe(viewLifecycleOwner) { incomeTransactions ->
+        //TODO
+        /*viewModel.allIncomes.observe(viewLifecycleOwner) { incomeTransactions ->
             incomeAdapter.submitList(incomeTransactions)
         }*/
     }

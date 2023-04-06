@@ -61,6 +61,9 @@ dependencies {
     implementation 'androidx.sqlite:sqlite-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-ui-ktx'
     implementation 'com.google.code.gson:gson:2.9.0'
+    implementation "io.insert-koin:koin-androidx-workmanager:3.3.0"
+    implementation "io.insert-koin:koin-androidx-compose:3.3.0"
+
     kapt 'androidx.room:room-compiler:2.5.1'
     implementation 'androidx.room:room-ktx:2.5.1'
     testImplementation 'junit:junit:4.13.2'
