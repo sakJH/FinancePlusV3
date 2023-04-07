@@ -11,3 +11,4 @@ Aktualizujte repository: Aktualizujte vaše repozitáře tak, aby používaly p�
 Aktualizujte ViewModely: Ujistěte se, že vaše ViewModely používají aktualizované repozitáře.
 - Ok
 Pracujte s daty ve fragmentech: V fragmentech používejte LiveData nebo Flow (pokud jste použili kotlin coroutines) pro sledování změn v databázi a aktualizaci uživatelského rozhraní.
+-

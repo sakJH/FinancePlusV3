@@ -5,30 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.databinding.FragmentMainBinding
-import androidx.navigation.fragment.findNavController
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
-
-    private val viewModel: TransactionViewModel by viewModel()
-
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMainBinding
+    private val viewModel: TransactionViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        // Nastavení OnClickListeneru pro tlačítka
+        setupButtonListeners()
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    private fun setupButtonListeners() {
         binding.addIncomeButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addIncomeFragment)
         }
@@ -36,10 +38,5 @@ class MainFragment : Fragment() {
         binding.addExpenseButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addExpenseFragment)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

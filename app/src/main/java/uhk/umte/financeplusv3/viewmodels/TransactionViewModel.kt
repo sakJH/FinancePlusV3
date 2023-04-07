@@ -34,10 +34,14 @@ class TransactionViewModel(
     private val _allExpenses = MutableLiveData<List<Expense>>()
     val allExpenses: LiveData<List<Expense>> = _allExpenses
 
+    private val _currentBalance = MutableLiveData<Double>()
+    val currentBalance: LiveData<Double> = _currentBalance
+
     init {
         loadAllTransactions()
         loadIncomeTransactions()
         loadExpenseTransactions()
+        loadCurrentBalance()
     }
 
     private fun loadAllTransactions() = viewModelScope.launch {
@@ -121,5 +125,9 @@ class TransactionViewModel(
     fun deleteExpense(expense: Expense) = viewModelScope.launch {
         expenseRepository.deleteExpense(expense)
         getAllExpenses()
+    }
+
+    private fun loadCurrentBalance() = viewModelScope.launch {
+        _currentBalance.value = repository.getCurrentBalance()
     }
 }

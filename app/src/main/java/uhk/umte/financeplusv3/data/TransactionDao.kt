@@ -50,4 +50,12 @@ interface TransactionDao {
 
     @Query("SELECT * FROM expenses")
     suspend fun getAllExpenses(): List<Expense>
+
+    //Aktuální bilance
+    @Query("SELECT SUM(amount) FROM transactions WHERE transactionType = 'income'")
+    suspend fun getTotalIncome(): Double?
+
+    @Query("SELECT SUM(amount) FROM transactions WHERE transactionType = 'expense'")
+    suspend fun getTotalExpense(): Double?
+
 }
