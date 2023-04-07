@@ -8,8 +8,12 @@ import android.view.ViewGroup
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.databinding.FragmentMainBinding
 import androidx.navigation.fragment.findNavController
+import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
+
+    private val viewModel: TransactionViewModel by viewModel()
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!

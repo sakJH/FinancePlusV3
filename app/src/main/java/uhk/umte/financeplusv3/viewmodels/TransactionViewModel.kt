@@ -1,10 +1,11 @@
 package uhk.umte.financeplusv3.viewmodels
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.koin.core.component.KoinComponent
 import uhk.umte.financeplusv3.models.Expense
 import uhk.umte.financeplusv3.models.Income
 import uhk.umte.financeplusv3.models.Transaction
@@ -13,18 +14,19 @@ import uhk.umte.financeplusv3.repositories.IncomeRepository
 import uhk.umte.financeplusv3.repositories.TransactionRepository
 
 class TransactionViewModel(
-    private val repository: TransactionRepository, private val incomeRepository: IncomeRepository,
-                           private val expenseRepository: ExpenseRepository
-) : ViewModel() {
+    private val repository: TransactionRepository,
+    private val incomeRepository: IncomeRepository,
+    private val expenseRepository: ExpenseRepository
+) : ViewModel(), KoinComponent {
 
     private val _allTransactions = MutableLiveData<List<Transaction>>()
-    val allTransactions = _allTransactions
+    val allTransactions: LiveData<List<Transaction>> = _allTransactions
 
     private val _incomeTransactions = MutableLiveData<List<Transaction>>()
-    val incomeTransactions = _incomeTransactions
+    val incomeTransactions: LiveData<List<Transaction>> = _incomeTransactions
 
     private val _expenseTransactions = MutableLiveData<List<Transaction>>()
-    val expenseTransactions = _expenseTransactions
+    val expenseTransactions: LiveData<List<Transaction>> = _expenseTransactions
 
     private val _allIncomes = MutableLiveData<List<Income>>()
     val allIncomes: LiveData<List<Income>> = _allIncomes
@@ -80,7 +82,6 @@ class TransactionViewModel(
         getAllIncomes()
         getAllExpenses()
     }
-
 
     private fun getAllIncomes() = viewModelScope.launch {
         _allIncomes.value = incomeRepository.getAllIncomes()

@@ -10,10 +10,6 @@ import uhk.umte.financeplusv3.models.Income
 import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.utils.Converters
 
-//class FinancePlusDatabase {}
-
-
-
 @Database(entities = [Transaction::class, Income::class, Expense::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class FinancePlusDatabase : RoomDatabase() {

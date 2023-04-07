@@ -1,0 +1,13 @@
+Vytvořte entitu: Pro každou tabulku v databázi vytvořte odpovídající třídu entity. Ujistěte se, že jste označili třídu anotací @Entity, každý atribut anotací @ColumnInfo a primární klíč anotací @PrimaryKey.
+- Ok
+Vytvořte DAO (Data Access Object): Pro každou entitu vytvořte rozhraní DAO s potřebnými metodami pro práci s daty, jako jsou vkládání, aktualizace, mazání a získávání záznamů.
+- Ok
+Vytvořte abstraktní třídu AppDatabase: Vytvořte abstraktní třídu, která rozšiřuje RoomDatabase. V této třídě deklarujte metody pro získání instancí vašich DAO.
+- Ok
+Inicializujte databázi: Vytvořte singleton instance AppDatabase a inicializujte ji pomocí Room.databaseBuilder().
+- Ok
+Aktualizujte repository: Aktualizujte vaše repozitáře tak, aby používaly příslušná DAO pro přístup k datům.
+- Ok
+Aktualizujte ViewModely: Ujistěte se, že vaše ViewModely používají aktualizované repozitáře.
+- Ok
+Pracujte s daty ve fragmentech: V fragmentech používejte LiveData nebo Flow (pokud jste použili kotlin coroutines) pro sledování změn v databázi a aktualizaci uživatelského rozhraní.

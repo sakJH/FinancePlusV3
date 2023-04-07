@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import uhk.umte.financeplusv3.adapters.TransactionAdapter
 import uhk.umte.financeplusv3.databinding.FragmentIncomeBinding
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IncomeFragment : Fragment() {
 

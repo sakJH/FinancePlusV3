@@ -23,13 +23,21 @@
             android:id="@+id/addIncomeFragment"
             android:name="uhk.umte.financeplusv3.fragments.add.AddIncomeFragment"
             android:label="@string/add_income"
-            tools:layout="@layout/fragment_add_income" />
+            tools:layout="@layout/fragment_add_income">
+        <action
+                android:id="@+id/action_addIncomeFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
             android:id="@+id/addExpenseFragment"
             android:name="uhk.umte.financeplusv3.fragments.add.AddExpenseFragment"
             android:label="@string/add_expense"
-            tools:layout="@layout/fragment_add_expense" />
+            tools:layout="@layout/fragment_add_expense">
+        <action
+                android:id="@+id/action_addExpenseFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
+    </fragment>
 
 
     <fragment

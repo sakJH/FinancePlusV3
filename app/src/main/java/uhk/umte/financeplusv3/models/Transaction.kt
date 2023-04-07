@@ -1,26 +1,27 @@
 package uhk.umte.financeplusv3.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
-/*
-class Transaction(
-
-    val id: Int = 0,
-    val amount: Double,
-    val category: String,
-    val date: Date,
-    val description: String,
-    val transactionType: String
-)*/
 
 @Entity(tableName = "transactions")
 data class Transaction(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+
+    @ColumnInfo(name = "amount")
     val amount: Double,
+
+    @ColumnInfo(name = "category")
     val category: String,
+
+    @ColumnInfo(name = "date")
     val date: Date,
-    val description: String,
+
+    @ColumnInfo(name = "description")
+    val description: String? = null,
+
+    @ColumnInfo(name = "transaction_type")
     val transactionType: String
 )

@@ -36,4 +36,5 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
     override suspend fun getExpenseTransactions(): List<Transaction> {
         return transactionDao.getTransactionsByType("expense")
     }
+
 }

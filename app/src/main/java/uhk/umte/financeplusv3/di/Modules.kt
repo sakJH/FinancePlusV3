@@ -1,28 +1,34 @@
 package uhk.umte.financeplusv3.di
 
-import org.koin.android.ext.koin.androidApplication
-import org.koin.androidx.compose.get
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.androidx.viewmodel.dsl.viewModelOf
-import org.koin.core.module.Module
-import org.koin.core.scope.get
 import org.koin.dsl.module
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
-
-val appModules by lazy { listOf(dataModule, uiModule) }
-
-val dataModule = module {
-    //TODO
-}
+import uhk.umte.financeplusv3.data.FinancePlusDatabase
+import uhk.umte.financeplusv3.repositories.ExpenseRepository
+import uhk.umte.financeplusv3.repositories.IncomeRepository
+import uhk.umte.financeplusv3.repositories.TransactionRepository
+import uhk.umte.financeplusv3.repositories.impl.TransactionRepositoryImpl
 
 val uiModule = module {
-    viewModels()
+    viewModel {
+        TransactionViewModel(
+            get(), // Repository injection
+            get(), // IncomeRepository injection
+            get()  // ExpenseRepository injection
+        )
+    }
 }
 
-
-private fun Module.viewModels() {
-    viewModel { TransactionViewModel(get(), get(), get()) }
-
-    viewModelOf(::TransactionViewModel)
+val dataModule = module {
+    single { FinancePlusDatabase.getDatabase(get()) }
+    single { get<FinancePlusDatabase>().transactionDao() }
+    single<TransactionRepository> { TransactionRepositoryImpl(get()) }
+    single<IncomeRepository> { IncomeRepository(get()) }
+    single<ExpenseRepository> { ExpenseRepository(get()) }
 }
 
+val repositoriesModule = module {
+    single<TransactionRepository> { TransactionRepositoryImpl(get()) }
+    single { IncomeRepository(get()) }
+    single { ExpenseRepository(get()) }
+}
