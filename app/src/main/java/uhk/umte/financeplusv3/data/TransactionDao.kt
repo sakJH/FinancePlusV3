@@ -24,7 +24,7 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions")
     suspend fun getAllTransactions(): List<Transaction>
 
-    @Query("SELECT * FROM transactions WHERE transactionType = :transactionType")
+    @Query("SELECT * FROM transactions WHERE transaction_type = :transactionType")
     suspend fun getTransactionsByType(transactionType: String): List<Transaction>
 
     @Insert
@@ -52,10 +52,10 @@ interface TransactionDao {
     suspend fun getAllExpenses(): List<Expense>
 
     //Aktuální bilance
-    @Query("SELECT SUM(amount) FROM transactions WHERE transactionType = 'income'")
+    @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'income'")
     suspend fun getTotalIncome(): Double?
 
-    @Query("SELECT SUM(amount) FROM transactions WHERE transactionType = 'expense'")
+    @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'expense'")
     suspend fun getTotalExpense(): Double?
 
 }

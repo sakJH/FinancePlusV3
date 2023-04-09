@@ -39,7 +39,7 @@ Vytvořte adaptéry pro RecyclerViews: Implementujte adaptéry pro zobrazení se
 - trans_item.xml
 - IncomeFragment - chyba
 - ExpanseFragment - chyba
-- BudgetFragment - chyba
+- BudgetFragment
 
 Propojte ViewModely s fragmenty: V každém fragmentu nastavte ViewModel a vytvořte pozorovatele pro LiveData objekty.
 
