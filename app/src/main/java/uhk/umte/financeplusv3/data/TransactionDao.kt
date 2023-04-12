@@ -1,6 +1,7 @@
 package uhk.umte.financeplusv3.data
 
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -9,6 +10,7 @@ import androidx.room.Delete
 import uhk.umte.financeplusv3.models.Expense
 import uhk.umte.financeplusv3.models.Income
 import uhk.umte.financeplusv3.models.Transaction
+import java.util.*
 
 @Dao
 interface TransactionDao {
@@ -58,4 +60,6 @@ interface TransactionDao {
     @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'expense'")
     suspend fun getTotalExpense(): Double?
 
+    @Query("SELECT COUNT(*) FROM transactions")
+    suspend fun countTransactions(): Int
 }

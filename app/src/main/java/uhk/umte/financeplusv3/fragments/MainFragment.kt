@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.databinding.FragmentMainBinding
+import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
+import java.util.*
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
@@ -27,6 +31,8 @@ class MainFragment : Fragment() {
         // Nastavení OnClickListeneru pro tlačítka
         setupButtonListeners()
 
+        addInitialTransactionIfEmpty()
+
         return binding.root
     }
 
@@ -37,6 +43,23 @@ class MainFragment : Fragment() {
 
         binding.addExpenseButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addExpenseFragment)
+        }
+    }
+
+    private fun addInitialTransactionIfEmpty() {
+        lifecycleScope.launch {
+            val hasAnyTransactions = viewModel.hasAnyTransactions()
+            if (!hasAnyTransactions) {
+                val initialTransaction = Transaction(
+                    id = 0,
+                    amount = 1.0,
+                    category = "Initial",
+                    date = Date(System.currentTimeMillis()),
+                    description = "První příjem",
+                    transactionType = "income"
+                )
+                viewModel.insert(initialTransaction)
+            }
         }
     }
 }

@@ -24,7 +24,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="80dp"
-                tools:text="Bilance: 0.00 CZK" />
+                />
 
         <Button
                 android:id="@+id/addIncomeButton"

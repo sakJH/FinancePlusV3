@@ -44,4 +44,8 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
         return totalIncome - totalExpense
     }
 
+    override suspend fun hasAnyTransactions(): Boolean {
+        return transactionDao.countTransactions() > 0
+    }
+
 }
