@@ -24,7 +24,7 @@ class AddExpenseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addExpenseButton.setOnClickListener {
-            // Add logic to save expense information to the database
+            findNavController().navigate(R.id.action_addExpenseFragment_to_mainFragment)
         }
     }
 
