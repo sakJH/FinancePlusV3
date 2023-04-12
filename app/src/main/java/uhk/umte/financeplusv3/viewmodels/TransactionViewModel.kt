@@ -14,6 +14,7 @@ import uhk.umte.financeplusv3.repositories.ExpenseRepository
 import uhk.umte.financeplusv3.repositories.IncomeRepository
 import uhk.umte.financeplusv3.repositories.TransactionRepository
 import uhk.umte.financeplusv3.utils.DateUtils
+import java.util.*
 
 class TransactionViewModel(
     private val repository: TransactionRepository,
@@ -38,6 +39,14 @@ class TransactionViewModel(
 
     private val _currentBalance = MutableLiveData<Double>()
     val currentBalance: LiveData<Double> = _currentBalance
+
+
+
+    private val _totalIncomes = MutableLiveData<Double>()
+    val totalIncomes: LiveData<Double> get() = _totalIncomes
+
+    private val _totalExpenses = MutableLiveData<Double>()
+    val totalExpenses: LiveData<Double> get() = _totalExpenses
 
     init {
         loadAllTransactions()

@@ -11,6 +11,5 @@
     <string name="amount">Částka</string>
     <string name="notification_channel_name">notifikace</string>
     <string name="notification_channel_description">notifikaceDescriptor</string>
-
     <string name="balance_format">Bilance: %.2f CZK</string>
 </resources>

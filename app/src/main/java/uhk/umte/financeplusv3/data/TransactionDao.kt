@@ -62,4 +62,7 @@ interface TransactionDao {
 
     @Query("SELECT COUNT(*) FROM transactions")
     suspend fun countTransactions(): Int
+
+    // Aktuální Výdaje a Příjmy
+
 }

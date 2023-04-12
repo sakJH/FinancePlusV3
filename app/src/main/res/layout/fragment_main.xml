@@ -48,6 +48,52 @@
                 app:layout_constraintStart_toEndOf="@+id/addIncomeButton"
                 app:layout_constraintTop_toBottomOf="@+id/balanceTextView" />
 
+        <!---->
+        <!--Příjmy a Výdaje-->
+        <!---->
+
+        <TextView
+                android:id="@+id/incomesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Příjmy:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addExpenseButton" />
+
+        <TextView
+                android:id="@+id/totalIncomes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@{@string/balance_format(viewModel.totalIncomes)}"
+                app:layout_constraintStart_toEndOf="@+id/incomesLabel"
+                app:layout_constraintTop_toTopOf="@+id/incomesLabel"
+                />
+
+        <TextView
+                android:id="@+id/expensesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Výdaje:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/incomesLabel" />
+
+        <TextView
+                android:id="@+id/totalExpenses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="18sp"
+                android:text="@{@string/balance_format(viewModel.totalExpenses)}"
+                app:layout_constraintStart_toEndOf="@+id/expensesLabel"
+                app:layout_constraintTop_toTopOf="@+id/expensesLabel"
+                />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
