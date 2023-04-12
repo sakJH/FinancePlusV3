@@ -1,4 +1,7 @@
 - opravit chyby 
 
+upravit main fragment
 přidat pevně dané kategorie 
 Budgetfragment pridat otevírací list
+přidat list do income fragment 
+přidat list do expense fragment
