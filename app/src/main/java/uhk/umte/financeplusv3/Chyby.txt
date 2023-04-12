@@ -12,8 +12,3 @@ Main Fragment - není vidět Budget, Je to přidaný ale funguje to?
 ---------------------------
 
 SQLite - jak to funguje, kde se ukládá (otázka)?
-
----------------------------
-
-totalIncomes / Expenses
-- v fragment_main se nenačítá -> píše "nu"

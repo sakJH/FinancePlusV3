@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
@@ -21,8 +19,6 @@ import java.util.*
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: TransactionViewModel by sharedViewModel()
-    private val totalIncomes = MutableLiveData<Double>()
-    private val totalExpenses = MutableLiveData<Double>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
