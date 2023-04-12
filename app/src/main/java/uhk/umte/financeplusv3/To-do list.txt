@@ -1,0 +1,4 @@
+- opravit chyby 
+
+přidat pevně dané kategorie 
+Budgetfragment pridat otevírací list
