@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uhk.umte.financeplusv3.databinding.FragmentAddIncomeBinding
+import androidx.navigation.fragment.findNavController
+import uhk.umte.financeplusv3.R
 
 class AddIncomeFragment : Fragment() {
 

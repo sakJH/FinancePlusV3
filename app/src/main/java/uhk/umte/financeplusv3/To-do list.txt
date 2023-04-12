@@ -1,4 +1,8 @@
-- opravit chyby 
+- opravit chyby
+
+- Podmínka:
+- řešení blocking I/O operací mimo UI threads (ideálně REST/GQL api)
+-- Co to znamená pro projekt
 
 upravit main fragment
 přidat pevně dané kategorie 

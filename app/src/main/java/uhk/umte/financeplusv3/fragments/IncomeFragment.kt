@@ -28,13 +28,7 @@ class IncomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
-        binding.saveButton.setOnClickListener {
 
-
-            findNavController().navigate(R.id.action_addIncomeFragment_to_mainFragment)
-
-        }
 
         val incomeAdapter = TransactionAdapter { transaction ->
             // Handle transaction item click
