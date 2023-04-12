@@ -24,7 +24,7 @@ class AddIncomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addIncomeButton.setOnClickListener {
-            // Add logic to save income information to the database
+            findNavController().navigate(R.id.action_addIncomeFragment_to_mainFragment)
         }
     }
 
