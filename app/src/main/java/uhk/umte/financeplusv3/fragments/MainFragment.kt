@@ -19,6 +19,7 @@ import java.util.*
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: TransactionViewModel by sharedViewModel()
+    val category: Array<String> = resources.getStringArray(R.array.categories)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +54,7 @@ class MainFragment : Fragment() {
                 val initialTransaction = Transaction(
                     id = 0,
                     amount = 1.0,
-                    category = "Initial",
+                    category = category[1],
                     date = Date(System.currentTimeMillis()),
                     description = "První příjem",
                     transactionType = "income"

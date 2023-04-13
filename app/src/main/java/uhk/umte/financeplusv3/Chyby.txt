@@ -7,8 +7,8 @@ Aplikace poté padá
 
 ---------------------------
 
-Main Fragment - není vidět Budget, Je to přidaný ale funguje to?
+SQLite - jak to funguje, kde se ukládá (otázka)?
 
 ---------------------------
 
-SQLite - jak to funguje, kde se ukládá (otázka)?
+The emulator process for AVD Pixel... has terminated.

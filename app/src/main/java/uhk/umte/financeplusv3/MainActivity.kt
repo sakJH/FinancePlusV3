@@ -3,10 +3,7 @@ package uhk.umte.financeplusv3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import uhk.umte.financeplusv3.fragments.BudgetFragment
-import uhk.umte.financeplusv3.fragments.ExpenseFragment
-import uhk.umte.financeplusv3.fragments.IncomeFragment
-import uhk.umte.financeplusv3.fragments.MainFragment
+import uhk.umte.financeplusv3.fragments.*
 
 class MainActivity : AppCompatActivity() {
 

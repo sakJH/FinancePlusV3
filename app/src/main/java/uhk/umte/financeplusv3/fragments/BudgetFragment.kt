@@ -35,7 +35,7 @@ class BudgetFragment : Fragment() {
         // Inicializace RecyclerView pro zobrazení všech transakcí
         val transactionRecyclerView = binding.transactionRecyclerView
         val transactionAdapter = TransactionAdapter { transaction ->
-            // Zde můžete implementovat akci, která se provede po klepnutí na položku
+            // Zde implementovat akci, která se provede po klepnutí na položku
         }
         transactionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         transactionRecyclerView.adapter = transactionAdapter
