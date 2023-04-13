@@ -54,7 +54,8 @@ class MainFragment : Fragment() {
                 val initialTransaction = Transaction(
                     id = 0,
                     amount = 1.0,
-                    category = category[1],
+                    //category = category[1],
+                    category = "Inicial",
                     date = Date(System.currentTimeMillis()),
                     description = "První příjem",
                     transactionType = "income"
