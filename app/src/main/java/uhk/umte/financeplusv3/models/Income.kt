@@ -14,7 +14,7 @@ data class Income(
     val amount: Double,
 
     @ColumnInfo(name = "category")
-    val category: String,
+    val category: Category,
 
     @ColumnInfo(name = "date")
     val date: Date,
@@ -23,11 +23,11 @@ data class Income(
     val description: String?,
 
     @ColumnInfo(name = "transaction_type")
-    val transactionType: String
+    val transactionType: TransactionType
 
 
 ) {
     fun toTransaction(): Transaction {
-        return Transaction(id, amount, category, date, description, "income")
+        return Transaction(id, amount, category, date, description, transactionType)
     }
 }

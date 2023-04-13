@@ -12,8 +12,9 @@ import uhk.umte.financeplusv3.adapters.TransactionAdapter
 import uhk.umte.financeplusv3.databinding.FragmentBudgetBinding
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import uhk.umte.financeplusv3.models.Transaction
 
-class BudgetFragment : Fragment() {
+class BudgetFragment : Fragment(), TransactionAdapter.OnTransactionItemClickListener {
 
     private var _binding: FragmentBudgetBinding? = null
     private val binding get() = _binding!!
@@ -34,9 +35,7 @@ class BudgetFragment : Fragment() {
 
         // Inicializace RecyclerView pro zobrazení všech transakcí
         val transactionRecyclerView = binding.transactionRecyclerView
-        val transactionAdapter = TransactionAdapter { transaction ->
-            // Zde implementovat akci, která se provede po klepnutí na položku
-        }
+        val transactionAdapter = TransactionAdapter(this)
         transactionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         transactionRecyclerView.adapter = transactionAdapter
 
@@ -44,6 +43,11 @@ class BudgetFragment : Fragment() {
         viewModel.allTransactions.observe(viewLifecycleOwner) { transactions ->
             transactionAdapter.submitList(transactions)
         }
+    }
+
+    override fun onTransactionItemClick(transaction: Transaction) {
+        val transactionDetailFragment = TransactionDetailFragment.newInstance(transaction)
+        transactionDetailFragment.show(childFragmentManager, TransactionDetailFragment.TAG)
     }
 
     override fun onDestroyView() {

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import uhk.umte.financeplusv3.fragments.*
+import uhk.umte.financeplusv3.fragments.add.AddExpenseFragment
+import uhk.umte.financeplusv3.fragments.add.AddIncomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var budgetFragment: BudgetFragment
     private lateinit var incomeFragment: IncomeFragment
     private lateinit var expenseFragment: ExpenseFragment
+    private lateinit var addIncomeFragment: AddIncomeFragment
+    private lateinit var addExpenseFragment: AddExpenseFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         budgetFragment = BudgetFragment()
         incomeFragment = IncomeFragment()
         expenseFragment = ExpenseFragment()
+        addIncomeFragment = AddIncomeFragment()
+        addExpenseFragment = AddExpenseFragment()
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, mainFragment)
@@ -50,6 +56,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.expensesFragment -> {
                     supportFragmentManager.beginTransaction().apply {
                         replace(R.id.fragment_container, expenseFragment)
+                        commit()
+                    }
+                }
+
+                R.id.addIncomeFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, addIncomeFragment)
+                        commit()
+                    }
+                }
+                R.id.addExpenseFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, addExpenseFragment)
                         commit()
                     }
                 }

@@ -9,8 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import uhk.umte.financeplusv3.databinding.TransactionItemBinding
 import uhk.umte.financeplusv3.models.Transaction
 
-class TransactionAdapter(private val onItemClickListener: (Transaction) -> Unit) :
+class TransactionAdapter(private val onTransactionItemClickListener: OnTransactionItemClickListener) :
     ListAdapter<Transaction, TransactionAdapter.TransactionViewHolder>(TransactionDiffCallback()) {
+
+    interface OnTransactionItemClickListener {
+        fun onTransactionItemClick(transaction: Transaction)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
         val binding = TransactionItemBinding.inflate(
@@ -22,20 +26,21 @@ class TransactionAdapter(private val onItemClickListener: (Transaction) -> Unit)
     }
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
-        holder.bind(getItem(position), onItemClickListener)
+        holder.bind(getItem(position), onTransactionItemClickListener)
     }
 
     class TransactionViewHolder(private val binding: TransactionItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(transaction: Transaction, onItemClickListener: (Transaction) -> Unit) {
+        fun bind(transaction: Transaction, onTransactionItemClickListener: OnTransactionItemClickListener) {
             binding.apply {
                 // Here you can bind transaction data to views
                 transactionTitle.text = transaction.description
                 transactionAmount.text = transaction.amount.toString()
+                transactionCategory.text = transaction.category.description
 
                 root.setOnClickListener {
-                    onItemClickListener(transaction)
+                    onTransactionItemClickListener.onTransactionItemClick(transaction)
                 }
             }
         }

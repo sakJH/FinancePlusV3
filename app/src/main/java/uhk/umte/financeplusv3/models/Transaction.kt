@@ -1,10 +1,13 @@
 package uhk.umte.financeplusv3.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "transactions")
 data class Transaction(
     @PrimaryKey(autoGenerate = true)
@@ -14,7 +17,7 @@ data class Transaction(
     val amount: Double,
 
     @ColumnInfo(name = "category")
-    val category: String,
+    val category: Category,
 
     @ColumnInfo(name = "date")
     val date: Date,
@@ -23,5 +26,5 @@ data class Transaction(
     val description: String? = null,
 
     @ColumnInfo(name = "transaction_type")
-    val transactionType: String
-)
+    val transactionType: TransactionType
+) : Parcelable

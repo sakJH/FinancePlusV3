@@ -7,14 +7,5 @@ Aplikace poté padá
 
 ---------------------------
 
-SQLite - jak to funguje, kde se ukládá (otázka)?
-
----------------------------
-
-The emulator process for AVD Pixel... has terminated.
-
-
---------------
-
 Kategorie enum
 - convertor

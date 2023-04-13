@@ -12,14 +12,15 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.databinding.FragmentMainBinding
+import uhk.umte.financeplusv3.models.Category
 import uhk.umte.financeplusv3.models.Transaction
+import uhk.umte.financeplusv3.models.TransactionType
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import java.util.*
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: TransactionViewModel by sharedViewModel()
-    val category: Array<String> = resources.getStringArray(R.array.categories)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,11 +55,10 @@ class MainFragment : Fragment() {
                 val initialTransaction = Transaction(
                     id = 0,
                     amount = 1.0,
-                    //category = category[1],
-                    category = "Inicial",
+                    category = Category.OTHER,
                     date = Date(System.currentTimeMillis()),
                     description = "První příjem",
-                    transactionType = "income"
+                    transactionType = TransactionType.INCOME
                 )
                 viewModel.insert(initialTransaction)
             }

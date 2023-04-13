@@ -30,12 +30,12 @@ class IncomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val incomeAdapter = TransactionAdapter { transaction ->
+        /*val incomeAdapter = TransactionAdapter { transaction ->
             // Handle transaction item click
-        }
+        }*/
 
         binding.recyclerView.apply {
-            adapter = incomeAdapter
+            //adapter = incomeAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
         //TODO

@@ -48,6 +48,52 @@
                 app:layout_constraintStart_toEndOf="@+id/addIncomeButton"
                 app:layout_constraintTop_toBottomOf="@+id/balanceTextView" />
 
+        <!---->
+        <!--Další informace-->
+        <!---->
+
+        <TextView
+            android:id="@+id/incomesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/income"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addExpenseButton" />
+
+        <TextView
+            android:id="@+id/totalIncomes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/incomesLabel"
+            app:layout_constraintTop_toTopOf="@+id/incomesLabel"
+            tools:text="10.00 CZK"
+             />
+
+        <TextView
+            android:id="@+id/expensesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/expenses"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incomesLabel" />
+
+        <TextView
+            android:id="@+id/totalExpenses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/expensesLabel"
+            app:layout_constraintTop_toTopOf="@+id/expensesLabel"
+            tools:text="10.00 CZK"
+             />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

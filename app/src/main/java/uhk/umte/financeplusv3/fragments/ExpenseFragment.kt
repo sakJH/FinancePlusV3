@@ -29,12 +29,12 @@ class ExpenseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val expenseAdapter = TransactionAdapter { transaction ->
+        /*val expenseAdapter = TransactionAdapter { transaction ->
             // Handle transaction item click
-        }
+        }*/
 
         binding.recyclerView.apply {
-            adapter = expenseAdapter
+            //adapter = expenseAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
         //TODO

@@ -48,4 +48,12 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
         return transactionDao.countTransactions() > 0
     }
 
+    override suspend fun getTotalIncomes(): Double {
+        return transactionDao.getAllIncomes().sumByDouble { it.amount }
+    }
+
+    override suspend fun getTotalExpenses(): Double {
+        return transactionDao.getAllExpenses().sumByDouble { it.amount }
+    }
+
 }
