@@ -11,6 +11,7 @@ import uhk.umte.financeplusv3.adapters.TransactionAdapter
 import uhk.umte.financeplusv3.databinding.FragmentIncomeBinding
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import uhk.umte.financeplusv3.models.Transaction
+import uhk.umte.financeplusv3.models.TransactionType
 
 class IncomeFragment : Fragment() {
 
@@ -41,9 +42,13 @@ class IncomeFragment : Fragment() {
         binding.recyclerView.adapter = transactionAdapter
 
         // Nastavení observeru pro LiveData objekt všech příjmů
-        viewModel.incomeTransactions.observe(viewLifecycleOwner) { transactions ->
-            transactionAdapter.submitList(transactions)
+        viewModel.allTransactions.observe(viewLifecycleOwner) { transactions ->
+            transactionAdapter.submitList(filterIncomeTransactions(transactions))
         }
+    }
+
+    private fun filterIncomeTransactions(transactions: List<Transaction>): List<Transaction> {
+        return transactions.filter { it.transactionType == TransactionType.INCOME }
     }
 
     private fun showTransactionDetailBottomSheet(transaction: Transaction) {
