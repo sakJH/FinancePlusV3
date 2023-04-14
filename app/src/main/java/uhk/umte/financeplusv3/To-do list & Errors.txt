@@ -7,7 +7,6 @@ Tlačítko Přidat tranaskci
 -- Income Fragment
 -- Expense Fragment
 
-
 ----------------------------
 
 Vytvoření formulářů pro Add Income / Expense
@@ -18,16 +17,16 @@ Přidat list do income fragment
 
 Přidat list do expense fragment
 
-----------------------------
-
-Rozpočet
-- Položky -> Formátování
-
 
 ----------------------------
 ------------Chyby-----------
 ----------------------------
 
+
+Chyby nechyba (funguje to ale IDE řve)
+- MainFragment -> bindování na setupObservers()
+
+----------------------------
 
 Income / Expense
 - Nejsou vidět detaily

@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import uhk.umte.financeplusv3.R
+import uhk.umte.financeplusv3.fragments.add.AddExpenseFragment
+import uhk.umte.financeplusv3.fragments.add.AddIncomeFragment
 import uhk.umte.financeplusv3.models.TransactionType
 
 class AddTransactionBottomSheetFragment : BottomSheetDialogFragment() {
@@ -28,14 +31,20 @@ class AddTransactionBottomSheetFragment : BottomSheetDialogFragment() {
         val addIncomeButton: Button = view.findViewById(R.id.add_income_button)
         val addExpenseButton: Button = view.findViewById(R.id.add_expense_button)
 
+        val transactionFormContainer: FrameLayout = view.findViewById(R.id.transactionFormContainer)
+
         addIncomeButton.setOnClickListener {
             listener?.onAddIncomeClick()
-            dismiss()
+            childFragmentManager.beginTransaction()
+                .replace(R.id.transactionFormContainer, AddIncomeFragment())
+                .commit()
         }
 
         addExpenseButton.setOnClickListener {
             listener?.onAddExpenseClick()
-            dismiss()
+            childFragmentManager.beginTransaction()
+                .replace(R.id.transactionFormContainer, AddExpenseFragment())
+                .commit()
         }
 
         return view
