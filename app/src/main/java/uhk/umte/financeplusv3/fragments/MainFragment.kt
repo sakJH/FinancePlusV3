@@ -38,6 +38,9 @@ class MainFragment : Fragment() {
 
         addInitialTransactionIfEmpty()
 
+        // Nastavení observerů pro zobrazení dat ve fragmentu
+        setupObservers()
+
         return binding.root
     }
 
@@ -85,5 +88,22 @@ class MainFragment : Fragment() {
                 }
             }
             .show()
+    }
+    private fun setupObservers() {
+        viewModel.totalIncomes.observe(viewLifecycleOwner, { total ->
+            binding.totalIncomesTextView.text = total.toString()
+        })
+
+        viewModel.totalExpenses.observe(viewLifecycleOwner, { total ->
+            binding.totalExpensesTextView.text = total.toString()
+        })
+
+        viewModel.totalIncomeCount.observe(viewLifecycleOwner, { count ->
+            binding.incomeCountTextView.text = count.toString()
+        })
+
+        viewModel.totalExpenseCount.observe(viewLifecycleOwner, { count ->
+            binding.expenseCountTextView.text = count.toString()
+        })
     }
 }

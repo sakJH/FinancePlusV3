@@ -1,20 +1,27 @@
+----------------------------
+------------To-Do-----------
+----------------------------
 
 Tlačítko Přidat tranaskci
 - Aplikovat Formuláře pro
 -- Income Fragment
 -- Expense Fragment
 
+
 ----------------------------
 
-MainFragment
-- Načítání součtů příjmů a výdajů
-- Načítání počtu příjmů a výdajů
+Vytvoření formulářů pro Add Income / Expense
 
 ----------------------------
 
 Přidat list do income fragment
+
 Přidat list do expense fragment
 
+----------------------------
+
+Rozpočet
+- Položky -> Formátování
 
 
 ----------------------------
@@ -25,17 +32,16 @@ Přidat list do expense fragment
 Income / Expense
 - Nejsou vidět detaily
 - Zkouším řešit, zatím nic
-- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily kategori
+- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily položky
+
 
 ----------------------------
-
-IncomeFragment
--//binding.viewModel = viewModel
-         //binding.lifecycleOwner = viewLifecycleOwner
-
+-----Formátování a Barvy----
+-------Až poslední----------
 ----------------------------
 
-Rozpočet
-- Roztáhlé položky
-
-----------------------------
+Main Fragment
+--
+Budget
+--
+Změnít výchozí barvy na jiné barevné schéma

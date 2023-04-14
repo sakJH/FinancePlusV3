@@ -61,4 +61,10 @@ interface TransactionDao {
 
     @Query("SELECT COUNT(*) FROM transactions")
     suspend fun countTransactions(): Int
+
+    @Query("SELECT COUNT(*) FROM transactions WHERE transaction_type = 'INCOME'")
+    suspend fun getIncomeCount(): Int
+
+    @Query("SELECT COUNT(*) FROM transactions WHERE transaction_type = 'EXPENSE'")
+    suspend fun getExpenseCount(): Int
 }

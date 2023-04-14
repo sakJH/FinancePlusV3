@@ -43,18 +43,23 @@ class TransactionViewModel(
     //Získání celkových příjmů pro main fragment
     private val _totalIncomes = MutableLiveData<Double>()
     val totalIncomes: LiveData<Double> get() = _totalIncomes
-
     //Získání celkových výdajů pro main fragment
     private val _totalExpenses = MutableLiveData<Double>()
     val totalExpenses: LiveData<Double> get() = _totalExpenses
+
+    private val _totalIncomeCount = MutableLiveData<Int>()
+    val totalIncomeCount: LiveData<Int> = _totalIncomeCount
+
+    private val _totalExpenseCount = MutableLiveData<Int>()
+    val totalExpenseCount: LiveData<Int> = _totalExpenseCount
 
     init {
         loadAllTransactions()
         loadIncomeTransactions()
         loadExpenseTransactions()
         loadCurrentBalance()
-        loadTotalIncomes()
-        loadTotalExpenses()
+        loadTotalIncomesAndCount()
+        loadTotalExpensesAndCount()
     }
 
     private fun loadAllTransactions() = viewModelScope.launch {
@@ -148,17 +153,20 @@ class TransactionViewModel(
         return repository.hasAnyTransactions()
     }
 
-    private fun loadTotalIncomes() {
+    private fun loadTotalIncomesAndCount() {
         viewModelScope.launch {
             _totalIncomes.value = repository.getTotalIncomes()
+            _totalIncomeCount.value = repository.getIncomeCount()
         }
     }
 
-    private fun loadTotalExpenses() {
+    private fun loadTotalExpensesAndCount() {
         viewModelScope.launch {
             _totalExpenses.value = repository.getTotalExpenses()
+            _totalExpenseCount.value = repository.getExpenseCount()
         }
     }
+
 
     fun prepareCategoryItems(transactions: List<Transaction>): List<CategoryItem> {
         val categoryItems = mutableListOf<CategoryItem>()
@@ -173,7 +181,6 @@ class TransactionViewModel(
                 categoryItems.add(TransactionItem(transaction))
             }
         }
-
         return categoryItems
     }
 }

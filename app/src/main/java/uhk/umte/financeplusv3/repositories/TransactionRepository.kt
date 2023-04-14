@@ -16,4 +16,7 @@ interface TransactionRepository {
 
     suspend fun getTotalIncomes(): Double
     suspend fun getTotalExpenses(): Double
+
+    suspend fun getIncomeCount(): Int
+    suspend fun getExpenseCount(): Int
 }

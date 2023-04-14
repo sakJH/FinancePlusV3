@@ -16,4 +16,8 @@
     <string name="transaction_type">Typ transakce</string>
     <string name="date">Datum</string>
     <string name="add_transaction">Přidat transakci</string>
+    <string name="total_incomes">Celkové příjmy za období</string>
+    <string name="total_expenses">Celkové výdaje za období</string>
+    <string name="income_count">Počet přijmů</string>
+    <string name="expense_count">Počet výdajů</string>
 </resources>
