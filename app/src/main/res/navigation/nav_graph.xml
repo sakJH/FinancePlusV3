@@ -6,17 +6,16 @@
             app:startDestination="@id/mainFragment">
 
     <fragment
-            android:id="@+id/mainFragment"
-            android:name="uhk.umte.financeplusv3.fragments.MainFragment"
-            android:label="Hlavní"
-            tools:layout="@layout/fragment_main">
-
-            <action
-                    android:id="@+id/action_mainFragment_to_addIncomeFragment"
-                    app:destination="@+id/addIncomeFragment" />
-            <action
-                    android:id="@+id/action_mainFragment_to_addExpenseFragment"
-                    app:destination="@+id/addExpenseFragment" />
+        android:id="@+id/mainFragment"
+        android:name="uhk.umte.financeplusv3.fragments.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_addIncomeFragment"
+            app:destination="@id/addIncomeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
     </fragment>
 
     <fragment

@@ -19,7 +19,7 @@ import uhk.umte.financeplusv3.models.TransactionType
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import java.util.*
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(){
     private lateinit var binding: FragmentMainBinding
     private val viewModel: TransactionViewModel by sharedViewModel()
 
@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
             val hasAnyTransactions = viewModel.hasAnyTransactions()
             if (!hasAnyTransactions) {
                 val initialTransaction = Transaction(
-                    id = 1,
+                    id = 0,
                     amount = 3.0,
                     category = Category.OTHER,
                     date = Date(System.currentTimeMillis()),
@@ -63,7 +63,7 @@ class MainFragment : Fragment() {
                 )
 
                 val initialTransactionExpense = Transaction(
-                    id = 2,
+                    id = 0,
                     amount = 2.0,
                     category = Category.OTHER,
                     date = Date(System.currentTimeMillis()),

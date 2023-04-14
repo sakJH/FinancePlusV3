@@ -1,10 +1,31 @@
 ----------------------------
+------------Chyby-----------
+----------------------------
+
+
+Chyby-NECHYBA (funguje to ale IDE řve)
+- MainFragment -> bindování na setupObservers()
+
+----------------------------
+
+Income / Expense
+- Nejsou vidět detaily
+- Zkouším řešit, zatím nic
+- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily položky
+
+----------------------------
+
+Přidání Income
+- padá to na NavController
+
+
+
+----------------------------
 ------------To-Do-----------
 ----------------------------
 
 Tlačítko Přidat tranaskci
 - Aplikovat Formuláře pro
--- Income Fragment
 -- Expense Fragment
 
 ----------------------------
@@ -16,22 +37,6 @@ Vytvoření formulářů pro Add Income / Expense
 Přidat list do income fragment
 
 Přidat list do expense fragment
-
-
-----------------------------
-------------Chyby-----------
-----------------------------
-
-
-Chyby nechyba (funguje to ale IDE řve)
-- MainFragment -> bindování na setupObservers()
-
-----------------------------
-
-Income / Expense
-- Nejsou vidět detaily
-- Zkouším řešit, zatím nic
-- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily položky
 
 
 ----------------------------
