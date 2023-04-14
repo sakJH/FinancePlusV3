@@ -1,0 +1,41 @@
+
+Tlačítko Přidat tranaskci
+- Aplikovat Formuláře pro
+-- Income Fragment
+-- Expense Fragment
+
+----------------------------
+
+MainFragment
+- Načítání součtů příjmů a výdajů
+- Načítání počtu příjmů a výdajů
+
+----------------------------
+
+Přidat list do income fragment
+Přidat list do expense fragment
+
+
+
+----------------------------
+------------Chyby-----------
+----------------------------
+
+
+Income / Expense
+- Nejsou vidět detaily
+- Zkouším řešit, zatím nic
+- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily kategori
+
+----------------------------
+
+IncomeFragment
+-//binding.viewModel = viewModel
+         //binding.lifecycleOwner = viewLifecycleOwner
+
+----------------------------
+
+Rozpočet
+- Roztáhlé položky
+
+----------------------------

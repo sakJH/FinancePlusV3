@@ -1,6 +1,0 @@
-
-IncomeFragment
--//binding.viewModel = viewModel
-         //binding.lifecycleOwner = viewLifecycleOwner
-
-------------------------------

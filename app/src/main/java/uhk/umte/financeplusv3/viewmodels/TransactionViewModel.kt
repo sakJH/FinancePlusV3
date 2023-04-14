@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
+import uhk.umte.financeplusv3.models.categoryitems.CategoryItem
 import uhk.umte.financeplusv3.models.Expense
 import uhk.umte.financeplusv3.models.Income
 import uhk.umte.financeplusv3.models.Transaction
+import uhk.umte.financeplusv3.models.categoryitems.CategoryHeader
+import uhk.umte.financeplusv3.models.categoryitems.TransactionItem
 import uhk.umte.financeplusv3.repositories.ExpenseRepository
 import uhk.umte.financeplusv3.repositories.IncomeRepository
 import uhk.umte.financeplusv3.repositories.TransactionRepository
@@ -155,5 +158,22 @@ class TransactionViewModel(
         viewModelScope.launch {
             _totalExpenses.value = repository.getTotalExpenses()
         }
+    }
+
+    fun prepareCategoryItems(transactions: List<Transaction>): List<CategoryItem> {
+        val categoryItems = mutableListOf<CategoryItem>()
+
+        // Třídit transakce podle kategorie
+        val transactionsByCategory = transactions.groupBy { it.category }
+
+        // Procházet každou kategorii a vytvářet CategoryHeader a TransactionItem objekty
+        transactionsByCategory.forEach { (category, transactions) ->
+            categoryItems.add(CategoryHeader(category))
+            transactions.forEach { transaction ->
+                categoryItems.add(TransactionItem(transaction))
+            }
+        }
+
+        return categoryItems
     }
 }
