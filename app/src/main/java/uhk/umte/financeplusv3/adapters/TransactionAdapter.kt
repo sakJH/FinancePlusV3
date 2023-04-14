@@ -38,6 +38,7 @@ class TransactionAdapter(private val onTransactionItemClickListener: OnTransacti
                 transactionTitle.text = transaction.description
                 transactionAmount.text = transaction.amount.toString()
                 transactionCategory.text = transaction.category.description
+                transactionType.text = transaction.transactionType.toString()
 
                 root.setOnClickListener {
                     onTransactionItemClickListener.onTransactionItemClick(transaction)

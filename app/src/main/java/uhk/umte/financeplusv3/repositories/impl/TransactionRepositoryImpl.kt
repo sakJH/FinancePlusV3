@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread
 import uhk.umte.financeplusv3.data.TransactionDao
 import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.repositories.TransactionRepository
+import kotlin.math.abs
 
 class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : TransactionRepository {
 
@@ -41,7 +42,7 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
     override suspend fun getCurrentBalance(): Double {
         val totalIncome = transactionDao.getTotalIncome() ?: 0.0
         val totalExpense = transactionDao.getTotalExpense() ?: 0.0
-        return totalIncome - totalExpense
+        return totalIncome - abs(totalExpense)
     }
 
     override suspend fun hasAnyTransactions(): Boolean {

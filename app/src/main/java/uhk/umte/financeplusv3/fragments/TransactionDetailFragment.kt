@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.models.Transaction
-import androidx.fragment.app.DialogFragment
+import java.text.DateFormat
 
 class TransactionDetailFragment : BottomSheetDialogFragment() {
 
@@ -33,20 +33,17 @@ class TransactionDetailFragment : BottomSheetDialogFragment() {
         descriptionTextView = view.findViewById(R.id.transaction_description)
         transactionTypeTextView = view.findViewById(R.id.transaction_type)
 
+        transaction = arguments?.getParcelable(ARG_TRANSACTION) ?: return view
         setTransactionData()
 
         return view
-    }
-
-    fun setTransaction(transaction: Transaction) {
-        this.transaction = transaction
     }
 
     private fun setTransactionData() {
         if (::transaction.isInitialized) {
             amountTextView.text = transaction.amount.toString()
             categoryTextView.text = transaction.category.description
-            dateTextView.text = transaction.date.toString()
+            dateTextView.text = DateFormat.getDateInstance().format(transaction.date)
             descriptionTextView.text = transaction.description
             transactionTypeTextView.text = transaction.transactionType.toString()
         }

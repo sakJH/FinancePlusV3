@@ -53,14 +53,25 @@ class MainFragment : Fragment() {
             val hasAnyTransactions = viewModel.hasAnyTransactions()
             if (!hasAnyTransactions) {
                 val initialTransaction = Transaction(
-                    id = 0,
-                    amount = 1.0,
+                    id = 1,
+                    amount = 3.0,
                     category = Category.OTHER,
                     date = Date(System.currentTimeMillis()),
                     description = "První příjem",
                     transactionType = TransactionType.INCOME
                 )
+
+                val initialTransactionExpense = Transaction(
+                    id = 2,
+                    amount = 2.0,
+                    category = Category.OTHER,
+                    date = Date(System.currentTimeMillis()),
+                    description = "První výdaj",
+                    transactionType = TransactionType.EXPENSE
+                )
                 viewModel.insert(initialTransaction)
+                viewModel.insert(initialTransactionExpense)
+
             }
         }
     }

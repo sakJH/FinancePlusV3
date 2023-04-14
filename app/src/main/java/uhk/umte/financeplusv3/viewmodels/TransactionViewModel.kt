@@ -52,7 +52,6 @@ class TransactionViewModel(
         loadCurrentBalance()
         loadTotalIncomes()
         loadTotalExpenses()
-
     }
 
     private fun loadAllTransactions() = viewModelScope.launch {
@@ -146,13 +145,13 @@ class TransactionViewModel(
         return repository.hasAnyTransactions()
     }
 
-    fun loadTotalIncomes() {
+    private fun loadTotalIncomes() {
         viewModelScope.launch {
             _totalIncomes.value = repository.getTotalIncomes()
         }
     }
 
-    fun loadTotalExpenses() {
+    private fun loadTotalExpenses() {
         viewModelScope.launch {
             _totalExpenses.value = repository.getTotalExpenses()
         }
