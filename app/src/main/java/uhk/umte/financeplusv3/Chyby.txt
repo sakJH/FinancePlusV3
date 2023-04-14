@@ -1,8 +1,6 @@
 
-AddIncomeFrag / AddExpenseFrag
-- stále padá
+IncomeFragment
+-//binding.viewModel = viewModel
+         //binding.lifecycleOwner = viewLifecycleOwner
 
 ------------------------------
-
-MainFrag
-- Příjem a Výdaje nic neukazují

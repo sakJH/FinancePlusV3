@@ -1,11 +1,16 @@
-Opravit chyby
-- 1. Globální tlačítko (+ dole)
-- 2. ?Vyskakovací okno - bottom sheet dialog(ModelBttomSheetLayout), dialog
 
-Upravit main fragment
-Přidat pevně dané kategorie
-- Potřebuji do projetku přidat pevně danné kategorie (třeba 10 kategorií), tak aby se pouze z nich vybíralo
+Tlačítko Přidat tranaskci
+- Aplikovat Formuláře pro
+-- Income Fragment
+-- Expense Fragment
 
-Budgetfragment pridat otevírací list
+----------------------------
+
+MainFragment
+- Načítání součtů příjmů a výdajů
+- Načítání počtu příjmů a výdajů
+
+----------------------------
+
 Přidat list do income fragment
 Přidat list do expense fragment
