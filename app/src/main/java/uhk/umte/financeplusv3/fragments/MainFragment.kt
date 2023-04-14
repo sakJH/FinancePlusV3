@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -30,22 +31,19 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        // Nastavení OnClickListeneru pro tlačítka
-        setupButtonListeners()
+        // Nastavení OnClickListeneru pro tlačítko
+        binding.addTransactionButton.setOnClickListener {
+            showTransactionTypeSelectionDialog()
+        }
 
         addInitialTransactionIfEmpty()
 
         return binding.root
     }
 
-    private fun setupButtonListeners() {
-        binding.addIncomeButton.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_addIncomeFragment)
-        }
-
-        binding.addExpenseButton.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_addExpenseFragment)
-        }
+    private fun showAddTransactionBottomSheet(transactionType: TransactionType) {
+        val bottomSheetDialogFragment = AddTransactionBottomSheetFragment.newInstance(transactionType)
+        bottomSheetDialogFragment.show(childFragmentManager, AddTransactionBottomSheetFragment.TAG)
     }
 
     private fun addInitialTransactionIfEmpty() {
@@ -74,5 +72,18 @@ class MainFragment : Fragment() {
 
             }
         }
+    }
+
+    private fun showTransactionTypeSelectionDialog() {
+        val options = arrayOf("Příjem", "Výdaj")
+        AlertDialog.Builder(requireContext())
+            .setTitle("Vyberte typ transakce")
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> showAddTransactionBottomSheet(TransactionType.INCOME)
+                    1 -> showAddTransactionBottomSheet(TransactionType.EXPENSE)
+                }
+            }
+            .show()
     }
 }

@@ -15,4 +15,5 @@
     <string name="balance_format">Bilance: %.2f CZK</string>
     <string name="transaction_type">Typ transakce</string>
     <string name="date">Datum</string>
+    <string name="add_transaction">Přidat transakci</string>
 </resources>
