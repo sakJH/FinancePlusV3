@@ -10,14 +10,7 @@ Chyby-NECHYBA
 
 ----------------------------
 
-Income / Expense
-- Nejsou vidět detaily
-- Zkouším řešit, zatím nic
-- Vidím název kategorie, ale není vidět položka. Po stisknutí do "prázdna" kousek od názvu kategorie se otevře BottomSheetFragment a zobrazí detaily položky
-
-----------------------------
-
-Přidání do IncomeFragment
+Přidání do AddIncomeFragment
 - padá to na NavController
 
 
@@ -28,16 +21,6 @@ Přidání do IncomeFragment
 Tlačítko Přidat tranaskci
 - Aplikovat Formuláře pro
 -- Expense Fragment
-
-----------------------------
-
-Vytvoření formulářů pro Add Income / Expense
-
-----------------------------
-
-Přidat list do income fragment
-
-Přidat list do expense fragment
 
 
 ----------------------------

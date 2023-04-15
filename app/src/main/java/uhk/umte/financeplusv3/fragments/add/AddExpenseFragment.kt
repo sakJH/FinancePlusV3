@@ -5,33 +5,73 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import uhk.umte.financeplusv3.databinding.FragmentAddExpenseBinding
 import androidx.navigation.fragment.findNavController
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
+import uhk.umte.financeplusv3.adapters.CategoryArrayAdapter
+import uhk.umte.financeplusv3.models.Category
+import uhk.umte.financeplusv3.models.Transaction
+import uhk.umte.financeplusv3.models.TransactionType
+
+import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
+import java.util.*
 
 class AddExpenseFragment : Fragment() {
 
-    private var _binding: FragmentAddExpenseBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAddExpenseBinding
+    private val viewModel: TransactionViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddExpenseBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_expense, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        // Nastavení spinneru pro výběr kategorie
+        val adapter = CategoryArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            Category.values()
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.categorySpinner.adapter = adapter
+
+        // Nastavení OnClickListeneru pro tlačítko
+        binding.submitExpenseButton.setOnClickListener {
+            saveExpenseToDatabase()
+        }
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun saveExpenseToDatabase() {
+        val description = binding.descriptionEditText.text.toString()
+        val category = binding.categorySpinner.selectedItem as Category
+        val amount = binding.amountEditText.text.toString().toDoubleOrNull()
 
-        binding.addExpenseButton.setOnClickListener {
-            findNavController().navigate(R.id.action_addExpenseFragment_to_mainFragment)
+        if (amount != null) {
+            val newIncome = Transaction(
+                id = 0,
+                amount = amount,
+                category = category,
+                date = Date(System.currentTimeMillis()),
+                description = description,
+                transactionType = TransactionType.EXPENSE
+            )
+            viewModel.insert(newIncome)
+            Toast.makeText(requireContext(), "Výdaj byl úspěšně přidán", Toast.LENGTH_SHORT).show()
+            try {
+                findNavController().popBackStack()
+            } catch (e: IllegalStateException) {
+                e.printStackTrace()
+                requireActivity().onBackPressed()
+            }
+        } else {
+            Toast.makeText(requireContext(), "Zadejte platnou částku", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
