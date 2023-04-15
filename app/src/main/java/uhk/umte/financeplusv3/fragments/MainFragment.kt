@@ -1,5 +1,6 @@
 package uhk.umte.financeplusv3.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
@@ -18,12 +18,9 @@ import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.models.TransactionType
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import java.util.*
-import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.utils.ColorTemplate
-import java.lang.Float
 
 class MainFragment : Fragment(){
     private lateinit var binding: FragmentMainBinding
@@ -124,7 +121,7 @@ class MainFragment : Fragment(){
         pieChart.legend.isEnabled = false
         pieChart.setDrawEntryLabels(false)
         pieChart.setCenterText("Příjmy a výdaje")
-        pieChart.setCenterTextSize(20f)
+        pieChart.setCenterTextSize(18f)
 
         updatePieChart()
     }
@@ -141,9 +138,11 @@ class MainFragment : Fragment(){
                 add(PieEntry(totalExpenses.toFloat(), "Výdaje"))
             }
 
-            val dataSet = PieDataSet(entries, "").apply {
-                colors = ColorTemplate.MATERIAL_COLORS.toList()
-            }
+            val dataSet = PieDataSet(entries, "")
+            dataSet.setColors(
+                Color.GREEN,  // Barva pro příjmy
+                Color.RED     // Barva pro výdaje
+            )
 
             val pieData = PieData(dataSet).apply {
                 setValueTextSize(16f)

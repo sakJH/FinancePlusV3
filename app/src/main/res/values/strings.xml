@@ -6,7 +6,7 @@
     <string name="expenses">Výdaje</string>
     <string name="add_income">Přidat příjem</string>
     <string name="add_expense">Přidat výdaj</string>
-    <string name="description">Popis (volitelné)</string>
+    <string name="description">Popis</string>
     <string name="category">Kategorie</string>
     <string name="amount">Částka</string>
     <string name="notification_channel_name">notifikace</string>
