@@ -113,6 +113,7 @@ class MainFragment : Fragment(){
         })
     }
 
+    //Nastavení a přidání grafu
     private fun setupPieChart() {
         val pieChart = binding.pieChart
 
