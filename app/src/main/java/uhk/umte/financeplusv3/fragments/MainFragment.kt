@@ -18,6 +18,12 @@ import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.models.TransactionType
 import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import java.util.*
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
+import java.lang.Float
 
 class MainFragment : Fragment(){
     private lateinit var binding: FragmentMainBinding
@@ -40,6 +46,9 @@ class MainFragment : Fragment(){
 
         // Nastavení observerů pro zobrazení dat ve fragmentu
         setupObservers()
+
+        //Nastavení Pie Chart
+        setupPieChart()
 
         return binding.root
     }
@@ -105,5 +114,43 @@ class MainFragment : Fragment(){
         viewModel.totalExpenseCount.observe(viewLifecycleOwner, { count ->
             binding.expenseCountTextView.text = count.toString()
         })
+    }
+
+    private fun setupPieChart() {
+        val pieChart = binding.pieChart
+
+        pieChart.setUsePercentValues(true)
+        pieChart.description.isEnabled = false
+        pieChart.legend.isEnabled = false
+        pieChart.setDrawEntryLabels(false)
+        pieChart.setCenterText("Příjmy a výdaje")
+        pieChart.setCenterTextSize(20f)
+
+        updatePieChart()
+    }
+
+    private fun updatePieChart() {
+        val pieChart = binding.pieChart
+
+        lifecycleScope.launch {
+            val totalIncomes = viewModel.totalIncomes.value ?:0.0
+            val totalExpenses = viewModel.totalExpenses.value ?:0.0
+
+            val entries = ArrayList<PieEntry>().apply {
+                add(PieEntry(totalIncomes.toFloat(), "Příjmy"))
+                add(PieEntry(totalExpenses.toFloat(), "Výdaje"))
+            }
+
+            val dataSet = PieDataSet(entries, "").apply {
+                colors = ColorTemplate.MATERIAL_COLORS.toList()
+            }
+
+            val pieData = PieData(dataSet).apply {
+                setValueTextSize(16f)
+            }
+
+            pieChart.data = pieData
+            pieChart.invalidate()
+        }
     }
 }

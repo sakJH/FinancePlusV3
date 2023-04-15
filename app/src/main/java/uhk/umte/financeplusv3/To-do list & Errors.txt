@@ -2,9 +2,11 @@
 ------------Chyby-----------
 ----------------------------
 
-
 Chyby-NECHYBA (funguje to ale IDE řve)
 - MainFragment -> bindování na setupObservers()
+----------------------------
+Chyby-NECHYBA
+- Graf -> sám nechce na střed -> teď je to řešeno Margin
 
 ----------------------------
 
@@ -15,9 +17,8 @@ Income / Expense
 
 ----------------------------
 
-Přidání Income
+Přidání do IncomeFragment
 - padá to na NavController
-
 
 
 ----------------------------
