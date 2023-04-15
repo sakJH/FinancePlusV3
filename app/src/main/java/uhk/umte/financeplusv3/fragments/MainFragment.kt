@@ -36,7 +36,7 @@ class MainFragment : Fragment(){
 
         // Nastavení OnClickListeneru pro tlačítko
         binding.addTransactionButton.setOnClickListener {
-            showTransactionTypeSelectionDialog()
+            showAddTransactionBottomSheet(TransactionType.INCOME)
         }
 
         addInitialTransactionIfEmpty()
@@ -83,18 +83,6 @@ class MainFragment : Fragment(){
         }
     }
 
-    private fun showTransactionTypeSelectionDialog() {
-        val options = arrayOf("Příjem", "Výdaj")
-        AlertDialog.Builder(requireContext())
-            .setTitle("Vyberte typ transakce")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> showAddTransactionBottomSheet(TransactionType.INCOME)
-                    1 -> showAddTransactionBottomSheet(TransactionType.EXPENSE)
-                }
-            }
-            .show()
-    }
     private fun setupObservers() {
         viewModel.totalIncomes.observe(viewLifecycleOwner, { total ->
             binding.totalIncomesTextView.text = total.toString()
