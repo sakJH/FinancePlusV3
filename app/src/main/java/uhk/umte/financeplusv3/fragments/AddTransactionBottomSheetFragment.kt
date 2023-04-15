@@ -46,7 +46,6 @@ class AddTransactionBottomSheetFragment : BottomSheetDialogFragment() {
                 .replace(R.id.transactionFormContainer, AddExpenseFragment())
                 .commit()
         }
-
         return view
     }
 

@@ -1,75 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/navigation_graph"
-            app:startDestination="@id/mainFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="uhk.umte.financeplusv3.fragments.MainFragment"
-        android:label="main_fragment"
-        tools:layout="@layout/fragment_main">
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_budgetFragment"
+            app:destination="@id/budgetFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_incomeFragment"
+            app:destination="@id/incomeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment" />
         <action
             android:id="@+id/action_mainFragment_to_addIncomeFragment"
             app:destination="@id/addIncomeFragment" />
         <action
             android:id="@+id/action_mainFragment_to_addExpenseFragment"
             app:destination="@id/addExpenseFragment" />
-    </fragment>
-
-    <fragment
-            android:id="@+id/addIncomeFragment"
-            android:name="uhk.umte.financeplusv3.fragments.add.AddIncomeFragment"
-            android:label="@string/add_income"
-            tools:layout="@layout/fragment_add_income">
         <action
-                android:id="@+id/action_addIncomeFragment_to_mainFragment"
-                app:destination="@id/mainFragment" />
+            android:id="@+id/action_mainFragment_to_addTransactionBottomSheetFragment"
+            app:destination="@id/addTransactionBottomSheetFragment" />
     </fragment>
 
     <fragment
-            android:id="@+id/addExpenseFragment"
-            android:name="uhk.umte.financeplusv3.fragments.add.AddExpenseFragment"
-            android:label="@string/add_expense"
-            tools:layout="@layout/fragment_add_expense">
+        android:id="@+id/budgetFragment"
+        android:name="uhk.umte.financeplusv3.fragments.BudgetFragment"
+        android:label="BudgetFragment" />
+
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="uhk.umte.financeplusv3.fragments.IncomeFragment"
+        android:label="IncomeFragment" />
+
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="uhk.umte.financeplusv3.fragments.ExpenseFragment"
+        android:label="ExpensesFragment" />
+
+    <fragment
+        android:id="@+id/addIncomeFragment"
+        android:name="uhk.umte.financeplusv3.fragments.add.AddIncomeFragment"
+        android:label="AddIncomeFragment">
         <action
-                android:id="@+id/action_addExpenseFragment_to_mainFragment"
-                app:destination="@id/mainFragment" />
-    </fragment>
-
-
-    <fragment
-            android:id="@+id/budgetFragment"
-            android:name="uhk.umte.financeplusv3.fragments.BudgetFragment"
-            android:label="Rozpočet"
-            tools:layout="@layout/fragment_budget" />
-
-    <fragment
-            android:id="@+id/incomeFragment"
-            android:name="uhk.umte.financeplusv3.fragments.IncomeFragment"
-            android:label="Příjmy"
-            tools:layout="@layout/fragment_income" >
-        <action android:id="@+id/action_incomeFragment_to_addIncomeFragment" app:destination="@id/addIncomeFragment"/>
+            android:id="@+id/action_addIncomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment"/>
+        <action
+            android:id="@+id/action_addIncomeFragment_to_addTransactionBottomSheetFragment"
+            app:destination="@id/addTransactionBottomSheetFragment" />
     </fragment>
 
     <fragment
-            android:id="@+id/expensesFragment"
-            android:name="uhk.umte.financeplusv3.fragments.ExpenseFragment"
-            android:label="Výdaje"
-            tools:layout="@layout/fragment_expense" >
-        <action android:id="@+id/action_expensesFragment_to_addExpenseFragment"
-                app:destination="@id/addExpenseFragment"/>
+        android:id="@+id/addExpenseFragment"
+        android:name="uhk.umte.financeplusv3.fragments.add.AddExpenseFragment"
+        android:label="AddExpenseFragment" >
+        <action
+            android:id="@+id/action_addExpenseFragment_to_mainFragment"
+            app:destination="@id/mainFragment"/>
+        <action
+            android:id="@+id/action_addExpenseFragment_to_addTransactionBottomSheetFragment"
+            app:destination="@id/addTransactionBottomSheetFragment" />
     </fragment>
 
     <fragment
-            android:id="@+id/transactionDetailFragment"
-            android:name="uhk.umte.financeplusv3.fragments.TransactionDetailFragment"
-            android:label="Detail přijmu/výdaje"
-            tools:layout="@layout/fragment_transaction_detail">
-        <argument
-                android:name="transactionId"
-                app:argType="integer" />
+        android:id="@+id/addTransactionBottomSheetFragment"
+        android:name="uhk.umte.financeplusv3.fragments.AddTransactionBottomSheetFragment"
+        android:label="BottomSheetFragment" >
+        <action
+            android:id="@+id/action_addTransactionBottomSheetFragment_to_addIncomeFragment"
+            app:destination="@id/addIncomeFragment" />
+        <action
+            android:id="@+id/action_addTransactionBottomSheetFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
     </fragment>
 
 
