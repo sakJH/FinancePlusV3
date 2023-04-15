@@ -38,6 +38,11 @@ android {
     }
     buildFeatures {
         viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.0"
+        kotlinCompilerVersion '1.8.0'
     }
 }
 
@@ -67,6 +72,16 @@ dependencies {
     implementation "io.insert-koin:koin-android:3.3.0"
     implementation "androidx.room:room-runtime:2.5.1"
     implementation 'androidx.room:room-ktx:2.5.1'
+
+    implementation "androidx.compose.ui:ui:1.4.1"
+    implementation "androidx.compose.ui:ui-tooling:1.4.1"
+    implementation "androidx.compose.foundation:foundation:1.4.1"
+    implementation "androidx.compose.material:material:1.4.1"
+    implementation "androidx.compose.material:material-icons-core:1.4.1"
+    implementation "androidx.compose.material:material-icons-extended:1.4.1"
+    implementation "androidx.compose.runtime:runtime-livedata:1.4.1"
+    debugImplementation "androidx.compose.ui:ui-tooling-preview:1.4.1"
+
     implementation 'org.jetbrains.kotlin:kotlin-parcelize-runtime:1.5.31'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     kapt 'androidx.room:room-compiler:2.5.1'
