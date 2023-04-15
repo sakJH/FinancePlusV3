@@ -12,6 +12,7 @@ import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.models.categoryitems.CategoryHeader
 import uhk.umte.financeplusv3.models.categoryitems.CategoryItem
 import uhk.umte.financeplusv3.models.categoryitems.TransactionItem
+import java.text.DateFormat
 
 class CategoryTransactionAdapter(
     private val onTransactionItemClickListener: (Transaction) -> Unit
@@ -69,6 +70,12 @@ class CategoryTransactionAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(transactionItem: TransactionItem) {
             binding.transaction = transactionItem.transaction
+
+            binding.transactionTitle.text = transactionItem.transaction.description
+            binding.transactionAmount.text = String.format("%.2f", transactionItem.transaction.amount)
+            binding.transactionDate.text = DateFormat.getDateInstance(DateFormat.DEFAULT).format(transactionItem.transaction.date)
+            binding.transactionCategory.text = transactionItem.transaction.category.description.toString()
+
             binding.root.setOnClickListener { onTransactionItemClickListener(transactionItem.transaction) }
             binding.executePendingBindings()
         }

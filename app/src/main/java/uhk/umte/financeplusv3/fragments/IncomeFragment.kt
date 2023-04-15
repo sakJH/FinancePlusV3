@@ -68,7 +68,6 @@ class IncomeFragment : Fragment() {
                 categoryItems.add(TransactionItem(transaction))
             }
         }
-
         return categoryItems
     }
 
