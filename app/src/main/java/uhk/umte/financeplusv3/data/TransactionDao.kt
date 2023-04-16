@@ -1,6 +1,7 @@
 package uhk.umte.financeplusv3.data
 
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -67,4 +68,10 @@ interface TransactionDao {
 
     @Query("SELECT COUNT(*) FROM transactions WHERE transaction_type = 'EXPENSE'")
     suspend fun getExpenseCount(): Int
+
+    @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'INCOME'")
+    fun getTotalIncomeLive(): LiveData<Double>
+
+    @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'EXPENSE'")
+    fun getTotalExpenseLive(): LiveData<Double>
 }

@@ -9,15 +9,6 @@ Chyby-NECHYBA
 - Graf -> sám nechce na střed -> teď je to řešeno Margin
 
 ----------------------------
-CHYBA
-Přidání do AddIncomeFragment
-- padá to na NavController
-- Chyba s NavController, kde aplikace padá do ošetřené vyjimky po přidání Příjmu či výdaje
-- Padá to v této části: findNavController().popBackStack()
-- > Změna celého nav_graph, Activity_main a MainActivity   ->  Ještě horší
-
-
-----------------------------
 ------------To-Do-----------
 ----------------------------
 

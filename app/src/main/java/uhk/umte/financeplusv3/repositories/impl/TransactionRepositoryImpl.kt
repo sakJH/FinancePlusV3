@@ -1,6 +1,7 @@
 package uhk.umte.financeplusv3.repositories.impl
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import uhk.umte.financeplusv3.data.TransactionDao
 import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.repositories.TransactionRepository
@@ -64,5 +65,14 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
     override suspend fun getExpenseCount(): Int {
         return transactionDao.getExpenseCount()
     }
+
+    override fun getTotalIncomesLive(): LiveData<Double> {
+        return transactionDao.getTotalIncomeLive()
+    }
+
+    override fun getTotalExpensesLive(): LiveData<Double> {
+        return transactionDao.getTotalExpenseLive()
+    }
+
 
 }

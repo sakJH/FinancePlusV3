@@ -1,9 +1,6 @@
 package uhk.umte.financeplusv3.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import uhk.umte.financeplusv3.models.categoryitems.CategoryItem
@@ -15,6 +12,7 @@ import uhk.umte.financeplusv3.models.categoryitems.TransactionItem
 import uhk.umte.financeplusv3.repositories.ExpenseRepository
 import uhk.umte.financeplusv3.repositories.IncomeRepository
 import uhk.umte.financeplusv3.repositories.TransactionRepository
+import kotlin.math.abs
 
 class TransactionViewModel(
     private val repository: TransactionRepository,
@@ -182,5 +180,27 @@ class TransactionViewModel(
             }
         }
         return categoryItems
+    }
+
+    val totalIncomesLive: LiveData<Double> = repository.getTotalIncomesLive()
+    val totalExpensesLive: LiveData<Double> = repository.getTotalExpensesLive()
+
+    val balance: LiveData<Double> = MediatorLiveData<Double>().apply {
+        var income = 0.0
+        var expense = 0.0
+
+        fun update() {
+            value = income - abs(expense)
+        }
+
+        addSource(totalIncomesLive) { newIncome ->
+            income = newIncome ?: 0.0
+            update()
+        }
+
+        addSource(totalExpensesLive) { newExpense ->
+            expense = newExpense ?: 0.0
+            update()
+        }
     }
 }

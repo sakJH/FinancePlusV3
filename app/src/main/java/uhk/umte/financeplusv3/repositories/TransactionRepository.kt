@@ -1,5 +1,6 @@
 package uhk.umte.financeplusv3.repositories
 
+import androidx.lifecycle.LiveData
 import uhk.umte.financeplusv3.models.Transaction
 
 interface TransactionRepository {
@@ -19,4 +20,7 @@ interface TransactionRepository {
 
     suspend fun getIncomeCount(): Int
     suspend fun getExpenseCount(): Int
+
+    fun getTotalIncomesLive(): LiveData<Double>
+    fun getTotalExpensesLive(): LiveData<Double>
 }

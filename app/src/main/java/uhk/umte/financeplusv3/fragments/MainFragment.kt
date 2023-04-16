@@ -99,6 +99,10 @@ class MainFragment : Fragment(){
         viewModel.totalExpenseCount.observe(viewLifecycleOwner, { count ->
             binding.expenseCountTextView.text = count.toString()
         })
+
+        viewModel.balance.observe(viewLifecycleOwner, { balance ->
+            binding.balanceTextView.text = getString(R.string.balance_format, balance)
+        })
     }
 
     //Nastavení a přidání grafu
