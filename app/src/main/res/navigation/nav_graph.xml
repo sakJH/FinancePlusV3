@@ -51,9 +51,6 @@
         <action
             android:id="@+id/action_addIncomeFragment_to_mainFragment"
             app:destination="@id/mainFragment"/>
-        <action
-            android:id="@+id/action_addIncomeFragment_to_addTransactionBottomSheetFragment"
-            app:destination="@id/addTransactionBottomSheetFragment" />
     </fragment>
 
     <fragment
@@ -63,9 +60,6 @@
         <action
             android:id="@+id/action_addExpenseFragment_to_mainFragment"
             app:destination="@id/mainFragment"/>
-        <action
-            android:id="@+id/action_addExpenseFragment_to_addTransactionBottomSheetFragment"
-            app:destination="@id/addTransactionBottomSheetFragment" />
     </fragment>
 
     <fragment

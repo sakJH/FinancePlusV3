@@ -65,7 +65,7 @@ class AddExpenseFragment : Fragment() {
             viewModel.insert(newIncome)
             Toast.makeText(requireContext(), "Výdaj byl úspěšně přidán", Toast.LENGTH_SHORT).show()
             try {
-                findNavController().popBackStack()
+                requireActivity().onBackPressed()
             } catch (e: IllegalStateException) {
                 e.printStackTrace()
                 requireActivity().onBackPressed()

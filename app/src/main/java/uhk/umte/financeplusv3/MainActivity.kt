@@ -12,17 +12,76 @@ import uhk.umte.financeplusv3.fragments.add.AddIncomeFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
+    private lateinit var mainFragment: MainFragment
+    private lateinit var budgetFragment: BudgetFragment
+    private lateinit var incomeFragment: IncomeFragment
+    private lateinit var expenseFragment: ExpenseFragment
+    private lateinit var addIncomeFragment: AddIncomeFragment
+    private lateinit var addExpenseFragment: AddExpenseFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
+        mainFragment = MainFragment()
+        budgetFragment = BudgetFragment()
+        incomeFragment = IncomeFragment()
+        expenseFragment = ExpenseFragment()
+        addIncomeFragment = AddIncomeFragment()
+        addExpenseFragment = AddExpenseFragment()
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, mainFragment)
+            commit()
+        }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.mainFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, mainFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+                R.id.budgetFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, budgetFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+                R.id.incomeFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, incomeFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+                R.id.expensesFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, expenseFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+                R.id.addIncomeFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, addIncomeFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+                R.id.addExpenseFragment -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragment_container, addExpenseFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                }
+            }
+            true
+        }
     }
 }
