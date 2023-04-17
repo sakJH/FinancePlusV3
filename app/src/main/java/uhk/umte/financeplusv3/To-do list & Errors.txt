@@ -16,6 +16,9 @@ Tlačítko Přidat tranaskci
 - Aplikovat Formuláře pro
 -- Expense Fragment
 
+-----------
+Tlačítko na odstranění záznamu
+
 
 ----------------------------
 -----Formátování a Barvy----
