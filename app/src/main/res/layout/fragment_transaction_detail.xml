@@ -50,4 +50,14 @@
         android:text="@string/date"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="Apr 4, 2023" />
+
+    <ImageButton
+        android:id="@+id/delete_transaction_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/delete_transaction" />
 </LinearLayout>

@@ -12,11 +12,6 @@ Chyby-NECHYBA
 ------------To-Do-----------
 ----------------------------
 
-Tlačítko Přidat tranaskci
-- Aplikovat Formuláře pro
--- Expense Fragment
-
------------
 Tlačítko na odstranění záznamu
 
 

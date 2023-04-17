@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.models.Transaction
+import uhk.umte.financeplusv3.viewmodels.TransactionViewModel
 import java.text.DateFormat
 
 class TransactionDetailFragment : BottomSheetDialogFragment() {
@@ -36,6 +39,11 @@ class TransactionDetailFragment : BottomSheetDialogFragment() {
         transaction = arguments?.getParcelable(ARG_TRANSACTION) ?: return view
         setTransactionData()
 
+        val deleteTransactionButton: ImageButton = view.findViewById(R.id.delete_transaction_button)
+        deleteTransactionButton.setOnClickListener {
+            deleteTransaction()
+        }
+
         return view
     }
 
@@ -62,5 +70,11 @@ class TransactionDetailFragment : BottomSheetDialogFragment() {
                 arguments = args
             }
         }
+    }
+
+    private fun deleteTransaction() {
+        val viewModel: TransactionViewModel by sharedViewModel()
+        viewModel.delete(transaction)
+        dismiss()
     }
 }

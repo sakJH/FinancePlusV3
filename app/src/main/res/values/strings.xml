@@ -20,4 +20,5 @@
     <string name="total_expenses">Celkové výdaje za období</string>
     <string name="income_count">Počet přijmů</string>
     <string name="expense_count">Počet výdajů</string>
+    <string name="delete_transaction">Smazat transakci</string>
 </resources>
