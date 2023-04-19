@@ -62,5 +62,5 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/delete_transaction"
         android:background="@android:color/transparent"
-        android:layout_marginLeft="135dp"/>
+        android:layout_marginLeft="160dp"/>
 </LinearLayout>

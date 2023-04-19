@@ -130,17 +130,14 @@ class MainFragment : Fragment(){
                 add(PieEntry(totalIncomes.toFloat(), "Příjmy"))
                 add(PieEntry(totalExpenses.toFloat(), "Výdaje"))
             }
-
             val dataSet = PieDataSet(entries, "")
             dataSet.setColors(
                 Color.GREEN,  // Barva pro příjmy
                 Color.RED     // Barva pro výdaje
             )
-
             val pieData = PieData(dataSet).apply {
                 setValueTextSize(16f)
             }
-
             pieChart.data = pieData
             pieChart.invalidate()
         }
