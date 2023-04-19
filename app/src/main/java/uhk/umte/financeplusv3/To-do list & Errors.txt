@@ -12,16 +12,11 @@ Chyby-NECHYBA
 ------------To-Do-----------
 ----------------------------
 
-Tlačítko na odstranění záznamu
-
 
 ----------------------------
 -----Formátování a Barvy----
 -------Až poslední----------
 ----------------------------
 
-Main Fragment
---
 Budget
---
-Změnít výchozí barvy na jiné barevné schéma
+

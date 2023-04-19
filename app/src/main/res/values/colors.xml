@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Barvy vhodné pro finanční služby -->
+    <color name="colorPrimary">#1E4A68</color> <!-- Tmavě modrá -->
+    <color name="colorPrimaryDark">#12334A</color> <!-- Ještě tmavší modrá -->
+    <color name="colorPrimaryLight">#558DB4</color> <!-- Světle modrá -->
+    <color name="colorAccent">#FFC107</color> <!-- Zlatavá -->
+    <color name="colorSecondary">#85B8CB</color> <!-- Měkká modrá -->
+    <color name="colorBackground">#F5F6F7</color> <!-- Světlý pozadí -->
+
+    <!-- Další barvy -->
+    <color name="colorError">#B00020</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorOnBackground">#202020</color>
+
+    <!-- Barvy pro noční režim -->
+    <color name="nightColorPrimary">#212E45</color>
+    <color name="nightColorPrimaryDark">#111A2E</color>
+    <color name="nightColorPrimaryLight">#374661</color>
+    <color name="nightColorAccent">#FFAB00</color>
+    <color name="nightColorSecondary">#507BA6</color>
+    <color name="nightColorBackground">#121212</color>
+    <color name="nightColorOnPrimary">#FFFFFF</color>
+    <color name="nightColorOnSecondary">#FFFFFF</color>
+    <color name="nightColorOnBackground">#FFFFFF</color>
+    <color name="nightColorError">#CF6679</color>
 </resources>
