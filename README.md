@@ -21,3 +21,5 @@ Vyvíjeno v Android Studio 2022.1.1
 - Android Gradle Plugin Ver. 7.3.0
 - Gradle Ver. 7.5
 - Andoid SDK Ver. 33
+- Android test device: Pixel 6 Pro
+- Android device OS: 13 Tiramisu 
