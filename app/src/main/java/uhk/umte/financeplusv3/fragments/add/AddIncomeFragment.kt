@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import uhk.umte.financeplusv3.R
 import uhk.umte.financeplusv3.adapters.CategoryArrayAdapter
+import uhk.umte.financeplusv3.fragments.AddTransactionBottomSheetFragment
 import uhk.umte.financeplusv3.models.Category
 import uhk.umte.financeplusv3.models.Transaction
 import uhk.umte.financeplusv3.models.TransactionType
@@ -64,7 +65,7 @@ class AddIncomeFragment : Fragment() {
             viewModel.insert(newIncome)
             Toast.makeText(requireContext(), "Příjem byl úspěšně přidán", Toast.LENGTH_SHORT).show()
             try {
-                requireActivity().onBackPressed()
+                (parentFragment as AddTransactionBottomSheetFragment).dismiss()
             } catch (e: IllegalStateException) {
                 e.printStackTrace()
                 requireActivity().onBackPressed()

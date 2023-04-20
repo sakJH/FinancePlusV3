@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
@@ -103,6 +104,8 @@ class MainFragment : Fragment(){
         viewModel.balance.observe(viewLifecycleOwner, { balance ->
             binding.balanceTextView.text = getString(R.string.balance_format, balance)
         })
+
+
     }
 
     //Nastavení a přidání grafu
@@ -117,14 +120,21 @@ class MainFragment : Fragment(){
         pieChart.setCenterTextSize(18f)
 
         updatePieChart()
+
+        viewModel.totalIncomesLive.observe(viewLifecycleOwner) {
+            updatePieChart()
+        }
+        viewModel.totalExpensesLive.observe(viewLifecycleOwner) {
+            updatePieChart()
+        }
     }
 
     private fun updatePieChart() {
         val pieChart = binding.pieChart
 
         lifecycleScope.launch {
-            val totalIncomes = viewModel.totalIncomes.value ?:0.0
-            val totalExpenses = viewModel.totalExpenses.value ?:0.0
+            val totalIncomes = viewModel.totalIncomesLive.value ?:0.0
+            val totalExpenses = viewModel.totalExpensesLive.value ?:0.0
 
             val entries = ArrayList<PieEntry>().apply {
                 add(PieEntry(totalIncomes.toFloat(), "Příjmy"))
@@ -132,10 +142,8 @@ class MainFragment : Fragment(){
             }
             val dataSet = PieDataSet(entries, "")
             dataSet.setColors(
-                Color.GREEN,  // Barva pro příjmy
-                Color.RED,     // Barva pro výdaje
-                //ContextCompat
-                //Color.parseColor(getString(R.color.colorPrimary))
+                ContextCompat.getColor(requireContext(), R.color.colorPrimary),
+                ContextCompat.getColor(requireContext(), R.color.nightColorError),
             )
             val pieData = PieData(dataSet).apply {
                 setValueTextSize(16f)
