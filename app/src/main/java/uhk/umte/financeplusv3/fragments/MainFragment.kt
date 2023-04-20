@@ -40,6 +40,10 @@ class MainFragment : Fragment(){
             showAddTransactionBottomSheet(TransactionType.INCOME)
         }
 
+        binding.deleteTransactionButton.setOnClickListener {
+            deleteAllTransaction()
+        }
+
         addInitialTransactionIfEmpty()
 
         // Nastavení observerů pro zobrazení dat ve fragmentu
@@ -151,5 +155,12 @@ class MainFragment : Fragment(){
             pieChart.data = pieData
             pieChart.invalidate()
         }
+    }
+
+    private fun deleteAllTransaction(){
+
+
+
+        addInitialTransactionIfEmpty()
     }
 }
