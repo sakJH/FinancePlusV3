@@ -3,20 +3,34 @@
 ----------------------------
 
 Chyby-NECHYBA (funguje to ale IDE řve)
-- MainFragment -> bindování na setupObservers()
+- MainFragment -> bindování
 ----------------------------
 Chyby-NECHYBA
 - Graf -> sám nechce na střed -> teď je to řešeno Margin
+
+
+Gragf -> Barvy z Resource
+
+Pie Chart -> neaktualizuje se
 
 ----------------------------
 ------------To-Do-----------
 ----------------------------
 
+Delete DB
 
 ----------------------------
 -----Formátování a Barvy----
--------Až poslední----------
 ----------------------------
 
 Budget
 
+
+
+----------------------------
+------------Errors-----------
+----------------------------
+
+BudgetFrag. se neaktualizuje
+----
+Detaily všech transakcí -> neaktualizují se

@@ -84,11 +84,11 @@ class MainFragment : Fragment(){
     }
 
     private fun setupObservers() {
-        viewModel.totalIncomes.observe(viewLifecycleOwner, { total ->
+        viewModel.totalIncomesLive.observe(viewLifecycleOwner, { total ->
             binding.totalIncomesTextView.text = total.toString()
         })
 
-        viewModel.totalExpenses.observe(viewLifecycleOwner, { total ->
+        viewModel.totalExpensesLive.observe(viewLifecycleOwner, { total ->
             binding.totalExpensesTextView.text = total.toString()
         })
 
@@ -133,7 +133,9 @@ class MainFragment : Fragment(){
             val dataSet = PieDataSet(entries, "")
             dataSet.setColors(
                 Color.GREEN,  // Barva pro příjmy
-                Color.RED     // Barva pro výdaje
+                Color.RED,     // Barva pro výdaje
+                //ContextCompat
+                //Color.parseColor(getString(R.color.colorPrimary))
             )
             val pieData = PieData(dataSet).apply {
                 setValueTextSize(16f)
