@@ -1,5 +1,6 @@
 package uhk.umte.financeplusv3.fragments
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -40,7 +41,7 @@ class MainFragment : Fragment(){
             showAddTransactionBottomSheet(TransactionType.INCOME)
         }
 
-        binding.deleteTransactionButton.setOnClickListener {
+        binding.deleteAllTransactionButton.setOnClickListener {
             deleteAllTransaction()
         }
 
@@ -159,8 +160,23 @@ class MainFragment : Fragment(){
 
     private fun deleteAllTransaction(){
 
+        // Vytvoření dialogového okna
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.delete_all_transactions_title))
+            .setMessage(getString(R.string.delete_all_transactions_message))
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                // Kód pro smazání všech transakcí
+                lifecycleScope.launch {
+                    viewModel.deleteAllTransactions()
+                    // Přidání addInitialTransactionIfEmpty() po úspěšném smazání transakcí
+                }
+                // Zavolání metody addInitialTransactionIfEmpty()
+                addInitialTransactionIfEmpty()
+            }
+            .setNegativeButton(getString(R.string.no), null)
+            .create()
 
-
-        addInitialTransactionIfEmpty()
+        // Zobrazení dialogového okna
+        alertDialog.show()
     }
 }

@@ -23,4 +23,6 @@ interface TransactionRepository {
 
     fun getTotalIncomesLive(): LiveData<Double>
     fun getTotalExpensesLive(): LiveData<Double>
+
+    suspend fun deleteAllTransactions()
 }

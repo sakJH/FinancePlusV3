@@ -203,4 +203,10 @@ class TransactionViewModel(
             update()
         }
     }
+
+    suspend fun deleteAllTransactions(){
+        viewModelScope.launch {
+            repository.deleteAllTransactions()
+        }
+    }
 }

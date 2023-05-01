@@ -22,4 +22,9 @@
     <string name="expense_count">Počet výdajů</string>
     <string name="delete_transaction">Smazat transakci</string>
     <string name="delete_all_transaction">Smazat všechny transakce</string>
+
+    <string name="delete_all_transactions_title">Smazat všechny transakce</string>
+    <string name="delete_all_transactions_message">Opravdu chcete smazat všechny transakce?</string>
+    <string name="yes">Ano</string>
+    <string name="no">Ne</string>
 </resources>

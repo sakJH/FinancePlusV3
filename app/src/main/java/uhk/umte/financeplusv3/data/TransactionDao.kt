@@ -74,4 +74,7 @@ interface TransactionDao {
 
     @Query("SELECT SUM(amount) FROM transactions WHERE transaction_type = 'EXPENSE'")
     fun getTotalExpenseLive(): LiveData<Double>
+
+    @Query("DELETE FROM transactions")
+    suspend fun deleteAllTransactions()
 }

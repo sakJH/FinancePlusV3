@@ -74,5 +74,10 @@ class TransactionRepositoryImpl(private val transactionDao: TransactionDao) : Tr
         return transactionDao.getTotalExpenseLive()
     }
 
+    @WorkerThread
+    override suspend fun deleteAllTransactions() {
+        return transactionDao.deleteAllTransactions()
+    }
+
 
 }

@@ -173,26 +173,16 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/deleteTransaction"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/deleteAllTransactionButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintBaseline_toBottomOf="@+id/detail_panel"
-            app:layout_constraintTop_toBottomOf="@+id/addTransactionButton" tools:layout_editor_absoluteX="0dp">
-
-            <Button
-                android:id="@+id/deleteTransactionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/nightColorError"
-                android:text="@string/delete_all_transaction"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-        </LinearLayout>
+            android:backgroundTint="@color/nightColorError"
+            android:text="@string/delete_all_transaction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="16dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
